@@ -8,7 +8,7 @@ dash-table==5.0.0
 Flask==2.0.3
 Flask-Caching==2.0.2
 Flask-Compress==1.13
-matplotlib==3.6.2
+matplotlib==3.5.3
 numpy==1.23.5
 openpyxl==3.0.10
 pandas==1.5.2
