@@ -8,6 +8,7 @@ import pathlib
 import math
 import matplotlib.pyplot as plt
 import os
+import getpass
 import openpyxl
 import warnings
 import traceback
@@ -224,7 +225,7 @@ def opening_range(op_range):
     
 
 # Get the current computer user's name
-user = os.getlogin()
+user = getpass.getuser()
 
 # Generate Destination Folders and Sub-Folders
 try:
