@@ -337,7 +337,7 @@ try:
 
 
  #List of your directories
- directories:List[str] = [r'https://mtrchk-my.sharepoint.com/:f:/r/personal/chunyung_mtr_com_hk/Documents/FP%26D/PHM/PHM%20Daily%20alarm?csf=1&web=1&e=8vctAU']
+ directories:List[str] = [r'WebPage/Alarms/']
 
  found_files:List[pathlib.Path] = list()
 
