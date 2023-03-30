@@ -9,6 +9,7 @@ import math
 import matplotlib.pyplot as plt
 import os
 import getpass
+import sys
 import openpyxl
 import warnings
 import traceback
@@ -288,6 +289,7 @@ EndDate = str(input('End In ? \n'))
 dt_list = []
 today = pd.to_datetime(date.today())
 constrain = pd.to_datetime(datetime.datetime(2000,1,1)) 
+sys.exit()
 
 #while True:
 try:
