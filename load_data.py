@@ -337,7 +337,7 @@ try:
 
 
  #List of your directories
- directories:List[str] = [r'WebPage/Alarms/']
+ directories:List[str] = [r'Alarms/']
 
  found_files:List[pathlib.Path] = list()
 
