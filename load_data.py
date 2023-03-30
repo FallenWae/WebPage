@@ -742,7 +742,7 @@ except:
     df35 = df35.dropna(axis=0 ,how = 'any')
     pass
 
-
+'''
 # Merge all files into a single file (ClosingTime Only)
 df36 = pd.concat([df24,df25,df26,df27,df28,df29,df30,df31,df32,df33,df34,df35],axis = 0).reset_index()
 df36 = df36.sort_values(by=['sortout'])
@@ -863,7 +863,7 @@ worksheet1.set_column(1,36,20)
 worksheet.set_column(0,0, None, None, {'hidden': True})
 worksheet1.set_column(0,0, None, None, {'hidden': True})
 writer.close()
-
+'''
 
 # Opening Speed Alarm --> df56
 df56 = pd.DataFrame(df6[['预警描述','车组','车厢','预警时间']]).copy()
@@ -930,7 +930,7 @@ df60 = df60.set_axis(['车组 (Opening)', '车厢 (Opening)','预警时间 (Open
 df63 = pd.DataFrame(pd.concat([df57,df62],axis=1))
 df63 = df63.set_axis(['车组 (Closing)','车厢 (Closing)','预警时间 (Closing)','Current_Station_Closing','Closing DCU','Closing Speed','Closing Standard'],axis = 'columns')
 
-
+'''
 #Final Opening Time and Closing Time Excel File with Stardard (>3.?)
 df60['Platform ID (Opening)'] = df60['Current_Station_Opening'].apply(lambda idxx : map_id(idxx))
 df60["Current_Station_Opening"]= df60["Current_Station_Opening"].apply(lambda name : map_stname(name))
@@ -1044,7 +1044,8 @@ worksheet.set_column(0,0, None, None, {'hidden': True})
 worksheet1.set_column(0,0, None, None, {'hidden': True})
 worksheet2.set_column(0,0, None, None, {'hidden': True})
 writer.close()
-
+'''
+'''
 # Delete all .png file in a folder (Opening_Time_Distribution)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time')
 target = os.listdir(folder_path)
@@ -1059,7 +1060,7 @@ target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))        
-
+'''
 
 # Generate Graph for analyzing OpeningTime Alarm (Normal) -->  df58
 try:
@@ -1071,7 +1072,7 @@ try:
     plt.title('Opening Time Distribution (Believed to be Normal Cases)')
     plt.xlabel('Count')
     plt.ylabel('Opening Speed')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Opening_Time_Distribution (Believed to be Normal Cases).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Opening_Time_Distribution (Believed to be Normal Cases).png')
     plt.close()
     
 except:
@@ -1086,7 +1087,7 @@ try:
     plt.title('Opening Time Distribution (Potentially Problematic)')
     plt.xlabel('Count')
     plt.ylabel('Opening Speed')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Opening_Time_Distribution (Potentially Problematic).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Opening_Time_Distribution (Potentially Problematic).png')
     plt.close()
     
 except:
@@ -1101,7 +1102,7 @@ try:
     plt.title('Opening Time Distribution (Abnormal)')
     plt.xlabel('Count')
     plt.ylabel('Opening Speed')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Opening_Time_Distribution (Abnormal).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Opening_Time_Distribution (Abnormal).png')
     plt.close()
     
 except:
@@ -1117,7 +1118,7 @@ try:
  plt.title('Opening Time Distribution (Zero)')
  plt.xlabel('Count')
  plt.ylabel('Opening Speed')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Opening_Time_Distribution (Zero).png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Opening_Time_Distribution (Zero).png')
  plt.close()
     
 except:
@@ -1136,7 +1137,7 @@ try:
  plt.title('Closing Time Distribution (Believed to be Normal Cases)')
  plt.xlabel('Count')
  plt.ylabel('Closing Speed')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Believed to be Normal Cases).png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Believed to be Normal Cases).png')
  plt.close()
     
 except:
@@ -1154,7 +1155,7 @@ try:
  plt.title('Closing Time Distribution (Potentially Problematic)')
  plt.xlabel('Count')
  plt.ylabel('Closing Speed')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Potentially Problematic).png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Potentially Problematic).png')
  plt.close()
     
 except:
@@ -1172,7 +1173,7 @@ try:
  plt.title('Closing Time Distribution (Abnormal)')
  plt.xlabel('Count')
  plt.ylabel('Closing Speed')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Abnormal).png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Abnormal).png')
  plt.close()
     
 except:
@@ -1188,7 +1189,7 @@ try:
  plt.title('Closing Time Distribution (Zero)')
  plt.xlabel('Count')
  plt.ylabel('Closing Speed')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Zero).png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Zero).png')
  plt.close()
     
 except:
@@ -1197,7 +1198,7 @@ except:
 
 
 #####################################################################################################################################################################################
-
+'''
 # Delete all .png file in a folder [Top_Ten_Opening_Time_Graphs (Normal)]
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal')
 target = os.listdir(folder_path)
@@ -1244,23 +1245,24 @@ target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
-
+'''
+'''
 # Delete all .png file in a folder [Top_Ten_Closing_Time_Graphs (Abnormal)]
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
+'''
 
-
+'''
 # Delete all .png file in a folder [Top_Ten_Closing_Time_Graphs (Zero)]
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Believed to be Normal Cases (Opening Time)  --> df139
 df139 = df56.copy()
@@ -1289,20 +1291,20 @@ try:
  plt.legend(['3.8: Red \n3.9: Blue\n4.0: Green'],loc='best',edgecolor = 'black',prop = {'size':15})
  plt.xlabel('Count')
  plt.ylabel('Opening Time DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Top_Ten_Opening_Time_DCU (Normal).png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Top_Ten_Opening_Time_DCU (Normal).png')
  plt.close()
 except:
     print('No Top Ten Opening Time Result (Normal)')
     plt.close()
 
-
+'''
 # Delete all .png file in a folder (Top Ten Opening Time Trend DCU) (Normal)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Top 1 No. of Opening Time Trend (Normal) --> df118
 try:
@@ -1322,7 +1324,7 @@ try:
  plt.title(top1 +' '+ 'Opening Time DCU Trend ({})'.format(t1_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top1.png'.format(user,top1))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top1.png'.format(user,top1))
  plt.close()
     
 except:
@@ -1348,7 +1350,7 @@ try:
  plt.title(top2 +' '+ 'Opening Time DCU Trend ({})'.format(t2_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top2.png'.format(user,top2))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top2.png'.format(user,top2))
  plt.close()
     
 except:
@@ -1374,7 +1376,7 @@ try:
  plt.title(top3 +' '+ 'Opening Time DCU Trend ({})'.format(t3_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top3.png'.format(user,top3))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top3.png'.format(user,top3))
  plt.close()
     
 except:
@@ -1400,7 +1402,7 @@ try:
  plt.title(top4 +' '+ 'Opening Time DCU Trend ({})'.format(t4_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top4.png'.format(user,top4))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top4.png'.format(user,top4))
  plt.close()
     
 except:
@@ -1426,7 +1428,7 @@ try:
  plt.title(top5 +' '+ 'Opening Time DCU Trend ({})'.format(t5_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top5.png'.format(user,top5))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top5.png'.format(user,top5))
  plt.close()
     
 except:
@@ -1452,7 +1454,7 @@ try:
  plt.title(top6 +' '+ 'Opening Time DCU Trend ({})'.format(t6_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top6.png'.format(user,top6))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top6.png'.format(user,top6))
  plt.close()
     
 except:
@@ -1478,7 +1480,7 @@ try:
  plt.title(top7 +' '+ 'Opening Time DCU Trend ({})'.format(t7_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top7.png'.format(user,top7))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top7.png'.format(user,top7))
  plt.close()
 
 except:
@@ -1504,7 +1506,7 @@ try:
  plt.title(top8 +' '+ 'Opening Time DCU Trend ({})'.format(t8_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top8.png'.format(user,top8))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top8.png'.format(user,top8))
  plt.close()
 
 except:
@@ -1530,7 +1532,7 @@ try:
  plt.title(top9 +' '+ 'Opening Time DCU Trend ({})'.format(t9_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top9.png'.format(user,top9))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top9.png'.format(user,top9))
  plt.close()
     
 except:
@@ -1556,7 +1558,7 @@ try:
  plt.title(top10 +' '+ 'Opening Time DCU Trend ({})'.format(t10_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top10.png'.format(user,top10))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends\{1}_Top10.png'.format(user,top10))
  plt.close()
     
 except:
@@ -1593,21 +1595,21 @@ try:
     plt.legend(['4.1: Red \n4.2: Green\n4.3: Blue\n4.4: Pink\n4.5: Orange \n4.6: Purple\n4.7: Cyan'],loc='best',edgecolor = 'black',prop = {'size':15})
     plt.xlabel('Count')
     plt.ylabel('Opening Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Top_Ten_Opening_Time_DCU (Potentially Problematic).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Top_Ten_Opening_Time_DCU (Potentially Problematic).png')
     plt.close()
     
 except:
     print('No Top Ten Opening Time Result (Potentially Problematic)')
     plt.close()
 
-
+'''
 # Delete all .png file in a folder (Top Ten Opening Time Trend DCU) (Potentially Problematic)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Top 1 No. of Opening Time Trend (Potentially Problematic) --> df219
 try:
@@ -1627,7 +1629,7 @@ try:
  plt.title(top1 +' '+ 'Opening Time DCU Trend ({})'.format(t1_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top1.png'.format(user,top1))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top1.png'.format(user,top1))
  plt.close()
     
 except:
@@ -1653,7 +1655,7 @@ try:
  plt.title(top2 +' '+ 'Opening Time DCU Trend ({})'.format(t2_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top2.png'.format(user,top2))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top2.png'.format(user,top2))
  plt.close()
     
 except:
@@ -1679,7 +1681,7 @@ try:
  plt.title(top3 +' '+ 'Opening Time DCU Trend ({})'.format(t3_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top3.png'.format(user,top3))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top3.png'.format(user,top3))
  plt.close()
     
 except:
@@ -1705,7 +1707,7 @@ try:
  plt.title(top4 +' '+ 'Opening Time DCU Trend ({})'.format(t4_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top4.png'.format(user,top4))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top4.png'.format(user,top4))
  plt.close()
     
 except:
@@ -1731,7 +1733,7 @@ try:
  plt.title(top5 +' '+ 'Opening Time DCU Trend ({})'.format(t5_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top5.png'.format(user,top5))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top5.png'.format(user,top5))
  plt.close()
     
 except:
@@ -1757,7 +1759,7 @@ try:
  plt.title(top6 +' '+ 'Opening Time DCU Trend ({})'.format(t6_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top6.png'.format(user,top6))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top6.png'.format(user,top6))
  plt.close()
     
 except:
@@ -1783,7 +1785,7 @@ try:
  plt.title(top7 +' '+ 'Opening Time DCU Trend ({})'.format(t7_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top7.png'.format(user,top7))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top7.png'.format(user,top7))
  plt.close()
     
 except:
@@ -1809,7 +1811,7 @@ try:
  plt.title(top8 +' '+ 'Opening Time DCU Trend ({})'.format(t8_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top8.png'.format(user,top8))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top8.png'.format(user,top8))
  plt.close()
     
 except:
@@ -1835,7 +1837,7 @@ try:
  plt.title(top9 +' '+ 'Opening Time DCU Trend ({})'.format(t9_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top9.png'.format(user,top9))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top9.png'.format(user,top9))
  plt.close()
     
 except:
@@ -1861,7 +1863,7 @@ try:
  plt.title(top10 +' '+ 'Opening Time DCU Trend ({})'.format(t10_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top10.png'.format(user,top10))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends\{1}_Top10.png'.format(user,top10))
  plt.close()
     
 except:
@@ -1894,21 +1896,21 @@ try:
     plt.title('Top Ten Opening Time DCU (Abnoraml)')
     plt.xlabel('Count')
     plt.ylabel('Opening Time DCU')
-    plt.savefig(fr'C:/Users/{user}/Downloads/location/Opening_Closing_Time/Top_ten/Opening_Time/Abnormal/Top_Ten_Opening_Time_DCU (Abnormal).png')
+    #plt.savefig(fr'C:/Users/{user}/Downloads/location/Opening_Closing_Time/Top_ten/Opening_Time/Abnormal/Top_Ten_Opening_Time_DCU (Abnormal).png')
     plt.close()
     
 except:
     print('No Top Ten Opening Time Result (Abnormal)')
     plt.close()
 
-
+'''
 # Delete all .png file in a folder (Top Ten Opening Time Trend DCU) (Abnormal)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Top 1 No. of Opening Time Trend (Abnormal) --> df232
 try:
@@ -1928,7 +1930,7 @@ try:
  plt.title(top1 +' '+ 'Opening Time DCU Trend ({})'.format(t1_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top1.png'.format(user,top1))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top1.png'.format(user,top1))
  plt.close()
     
 except:
@@ -1954,7 +1956,7 @@ try:
  plt.title(top2 +' '+ 'Opening Time DCU Trend ({})'.format(t2_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top2.png'.format(user,top2))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top2.png'.format(user,top2))
  plt.close()
     
 except:
@@ -1980,7 +1982,7 @@ try:
  plt.title(top3 +' '+ 'Opening Time DCU Trend ({})'.format(t3_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top3.png'.format(user,top3))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top3.png'.format(user,top3))
  plt.close()
     
 except:
@@ -2006,7 +2008,7 @@ try:
  plt.title(top4 +' '+ 'Opening Time DCU Trend ({})'.format(t4_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top4.png'.format(user,top4))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top4.png'.format(user,top4))
  plt.close()
     
 except:
@@ -2032,7 +2034,7 @@ try:
  plt.title(top5 +' '+ 'Opening Time DCU Trend ({})'.format(t5_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top5.png'.format(user,top5))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top5.png'.format(user,top5))
  plt.close()
     
 except:
@@ -2058,7 +2060,7 @@ try:
  plt.title(top6 +' '+ 'Opening Time DCU Trend ({})'.format(t6_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top6.png'.format(user,top6))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top6.png'.format(user,top6))
  plt.close()
     
 except:
@@ -2084,7 +2086,7 @@ try:
  plt.title(top7 +' '+ 'Opening Time DCU Trend ({})'.format(t7_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top7.png'.format(user,top7))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top7.png'.format(user,top7))
  plt.close()
     
 except:
@@ -2110,7 +2112,7 @@ try:
  plt.title(top8 +' '+ 'Opening Time DCU Trend ({})'.format(t8_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top8.png'.format(user,top8))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top8.png'.format(user,top8))
  plt.close()
     
 except:
@@ -2136,7 +2138,7 @@ try:
  plt.title(top9 +' '+ 'Opening Time DCU Trend ({})'.format(t9_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top9.png'.format(user,top9))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{1}_Top9.png'.format(user,top9))
  plt.close()
     
 except:
@@ -2162,7 +2164,7 @@ try:
  plt.title(top10 +' '+ 'Opening Time DCU Trend ({})'.format(t10_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{}_Top10.png'.format(user,top10))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends\{}_Top10.png'.format(user,top10))
  plt.close()
     
 except:
@@ -2192,20 +2194,20 @@ try:
  plt.title('Top Ten Opening Time DCU (Zero)')
  plt.xlabel('Count')
  plt.ylabel('Opening Time DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Top_Ten_Opening_Time_DCU (Zero).png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Top_Ten_Opening_Time_DCU (Zero).png')
  plt.close()
 except:
     print('No Top Ten Opening Time Result (Zero)')
     plt.close()
 
-
+'''
 # Delete all .png file in a folder (Top Ten Opening Time Trend DCU) (Zero)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Top 1 No. of Opening Time Trend (Zero) --> df143
 try:
@@ -2223,7 +2225,7 @@ try:
  plt.title(top1 +' '+ 'Opening Time DCU Trend ({})'.format(t1_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top1.png'.format(user,top1))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top1.png'.format(user,top1))
  plt.close()
     
 except:
@@ -2247,7 +2249,7 @@ try:
  plt.title(top2 +' '+ 'Opening Time DCU Trend ({})'.format(t2_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top2.png'.format(user,top2))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top2.png'.format(user,top2))
  plt.close()
     
 except:
@@ -2271,7 +2273,7 @@ try:
  plt.title(top3 +' '+ 'Opening Time DCU Trend ({})'.format(t3_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top3.png'.format(user,top3))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top3.png'.format(user,top3))
  plt.close()
     
 except:
@@ -2295,7 +2297,7 @@ try:
  plt.title(top4 +' '+ 'Opening Time DCU Trend ({})'.format(t4_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top4.png'.format(user,top4))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top4.png'.format(user,top4))
  plt.close()
     
 except:
@@ -2319,7 +2321,7 @@ try:
  plt.title(top5 +' '+ 'Opening Time DCU Trend ({})'.format(t5_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top5.png'.format(user,top5))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top5.png'.format(user,top5))
  plt.close()
     
 except:
@@ -2343,7 +2345,7 @@ try:
  plt.title(top6 +' '+ 'Opening Time DCU Trend ({})'.format(t6_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top6.png'.format(user,top6))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top6.png'.format(user,top6))
  plt.close()
     
 except:
@@ -2367,7 +2369,7 @@ try:
  plt.title(top7 +' '+ 'Opening Time DCU Trend ({})'.format(t7_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top7.png'.format(user,top7))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top7.png'.format(user,top7))
  plt.close()
     
 except:
@@ -2391,7 +2393,7 @@ try:
  plt.title(top8 +' '+ 'Opening Time DCU Trend ({})'.format(t8_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top8.png'.format(user,top8))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top8.png'.format(user,top8))
  plt.close()
     
 except:
@@ -2415,7 +2417,7 @@ try:
  plt.title(top9 +' '+ 'Opening Time DCU Trend ({})'.format(t9_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top9.png'.format(user,top9))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top9.png'.format(user,top9))
  plt.close()
     
 except:
@@ -2439,14 +2441,14 @@ try:
  plt.title(top10 +' '+ 'Opening Time DCU Trend ({})'.format(t10_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top10.png'.format(user,top10))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends\{1}_Top10.png'.format(user,top10))
  plt.close()
     
 except:
     print('No Top10 Opening Time Trend (Zero)')
     plt.close()
 
-
+'''
 # Delete all .png file in a folder (Opening Time Range Count)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count')
 target = os.listdir(folder_path)
@@ -2454,6 +2456,7 @@ for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
 
+'''
 
 # Opening Time Group Count with a particular range (3.8-3.9) -->  df270
 try:
@@ -2474,7 +2477,7 @@ try:
     plt.title('Opening Time Range Count (3.8-3.9)')
     plt.xlabel('Count')
     plt.ylabel('Opening Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count\Opening_Time_Range_Count(3.8-3.9).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count\Opening_Time_Range_Count(3.8-3.9).png')
     plt.close()
     
 except:
@@ -2500,7 +2503,7 @@ try:
     plt.title('Opening Time Range Count (4.0-4.9)')
     plt.xlabel('Count')
     plt.ylabel('Opening Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count\Opening_Time_Range_Count(4.0-4.9).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count\Opening_Time_Range_Count(4.0-4.9).png')
     plt.close()
     
 except:
@@ -2527,7 +2530,7 @@ try:
     plt.title('Opening Time Range Count (5.0-9.9)')
     plt.xlabel('Count')
     plt.ylabel('Opening Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count\Opening_Time_Range_Count(5.0-9.9).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count\Opening_Time_Range_Count(5.0-9.9).png')
     plt.close()
     
 except:
@@ -2554,7 +2557,7 @@ try:
     plt.title('Opening Time Range Count (>9.9)')
     plt.xlabel('Count')
     plt.ylabel('Opening Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count\Opening_Time_Range_Count(9.9...).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count\Opening_Time_Range_Count(9.9...).png')
     plt.close()
     
 except:
@@ -2590,13 +2593,13 @@ try:
     plt.legend(['3.6: Red \n3.7: Green\n3.8: Blue\n3.9: Pink\n4: Orange'],loc='best',edgecolor = 'black',prop = {'size':15})
     plt.xlabel('Count')
     plt.ylabel('Closing Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Top_Ten_Closing_Time_DCU (Normal).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Top_Ten_Closing_Time_DCU (Normal).png')
     plt.close()
 except:
     print('No Top Ten Closing Time Result (Normal)')
     plt.close()
 
-
+'''
 # Delete all .png file in a folder (Top Ten Closing Time Trend DCU) (Normal)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends')
 target = os.listdir(folder_path)
@@ -2604,6 +2607,7 @@ for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
 
+'''
 
 #Top 1 No. of Closing Time Trend (Normal) --> df128
 
@@ -2624,7 +2628,7 @@ try:
  plt.title(top1 +' '+ 'Closing Time DCU Trend ({})'.format(t1_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top1.png'.format(user,top1))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top1.png'.format(user,top1))
  plt.close()
     
 except:
@@ -2651,7 +2655,7 @@ try:
  plt.title(top2 +' '+ 'Closing Time DCU Trend ({})'.format(t2_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top2.png'.format(user,top2))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top2.png'.format(user,top2))
  plt.close()
     
 except:
@@ -2678,7 +2682,7 @@ try:
  plt.title(top3 +' '+ 'Closing Time DCU Trend ({})'.format(t3_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top3.png'.format(user,top3))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top3.png'.format(user,top3))
  plt.close()
     
 except:
@@ -2705,7 +2709,7 @@ try:
  plt.title(top4 +' '+ 'Closing Time DCU Trend ({})'.format(t4_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top4.png'.format(user,top4))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top4.png'.format(user,top4))
  plt.close()
     
 except:
@@ -2732,7 +2736,7 @@ try:
  plt.title(top5 +' '+ 'Closing Time DCU Trend ({})'.format(t5_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top5.png'.format(user,top5))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top5.png'.format(user,top5))
  plt.close()
     
 except:
@@ -2759,7 +2763,7 @@ try:
  plt.title(top6 +' '+ 'Closing Time DCU Trend ({})'.format(t6_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top6.png'.format(user,top6))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top6.png'.format(user,top6))
  plt.close()
     
 except:
@@ -2786,7 +2790,7 @@ try:
  plt.title(top7 +' '+ 'Closing Time DCU Trend ({})'.format(t7_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top7.png'.format(user,top7))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top7.png'.format(user,top7))
  plt.close()
     
 except:
@@ -2813,7 +2817,7 @@ try:
  plt.title(top8 +' '+ 'Closing Time DCU Trend ({})'.format(t8_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top8.png'.format(user,top8))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top8.png'.format(user,top8))
  plt.close()
     
 except:
@@ -2840,7 +2844,7 @@ try:
  plt.title(top9 +' '+ 'Closing Time DCU Trend ({})'.format(t9_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top9.png'.format(user,top9))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top9.png'.format(user,top9))
  plt.close()
     
 except:
@@ -2867,7 +2871,7 @@ try:
  plt.title(top10 +' '+ 'Closing Time DCU Trend ({})'.format(t10_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top10.png'.format(user,top10))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends\{1}_Top10.png'.format(user,top10))
  plt.close()
     
 except:
@@ -2898,20 +2902,20 @@ try:
     plt.title('Top Ten Closing Time DCU (Potentially Problematic)')
     plt.xlabel('Count')
     plt.ylabel('Closing Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Top_Ten_Closing_Time_DCU (Potentially_Problematic).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Top_Ten_Closing_Time_DCU (Potentially_Problematic).png')
     plt.close()
 except:
     print('No Top Ten Closing Time Result (Potentially_Problematic)')
     plt.close()
 
-
+'''
 #Delete all .png file in a folder (Top Ten Closing Time Trend DCU) (Potentially_Problematic)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Top 1 No. of Closing Time Trend (Potentially_Problematic) --> df247
 try:
@@ -2929,7 +2933,7 @@ try:
  plt.title(top1 +' '+ 'Closing Time DCU Trend ({})'.format(t1_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top1.png'.format(user,top1))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top1.png'.format(user,top1))
  plt.close()
     
 except:
@@ -2953,7 +2957,7 @@ try:
  plt.title(top2 +' '+ 'Closing Time DCU Trend ({})'.format(t2_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top2.png'.format(user,top2))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top2.png'.format(user,top2))
  plt.close()
     
 except:
@@ -2977,7 +2981,7 @@ try:
  plt.title(top3 +' '+ 'Closing Time DCU Trend ({})'.format(t3_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top3.png'.format(user,top3))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top3.png'.format(user,top3))
  plt.close()
     
 except:
@@ -3001,7 +3005,7 @@ try:
  plt.title(top4 +' '+ 'Closing Time DCU Trend ({})'.format(t4_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top4.png'.format(user,top4))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top4.png'.format(user,top4))
  plt.close()
     
 except:
@@ -3025,7 +3029,7 @@ try:
  plt.title(top5 +' '+ 'Closing Time DCU Trend ({})'.format(t5_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top5.png'.format(user,top5))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top5.png'.format(user,top5))
  plt.close()
     
 except:
@@ -3049,7 +3053,7 @@ try:
  plt.title(top6 +' '+ 'Closing Time DCU Trend ({})'.format(t6_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top6.png'.format(user,top6))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top6.png'.format(user,top6))
  plt.close()
     
 except:
@@ -3073,7 +3077,7 @@ try:
  plt.title(top7 +' '+ 'Closing Time DCU Trend ({})'.format(t7_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top7.png'.format(user,top7))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top7.png'.format(user,top7))
  plt.close()
     
 except:
@@ -3097,7 +3101,7 @@ try:
  plt.title(top8 +' '+ 'Closing Time DCU Trend ({})'.format(t8_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top8.png'.format(user,top8))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top8.png'.format(user,top8))
  plt.close()
     
 except:
@@ -3121,7 +3125,7 @@ try:
  plt.title(top9 +' '+ 'Closing Time DCU Trend ({})'.format(t9_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top9.png'.format(user,top9))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top9.png'.format(user,top9))
  plt.close()
     
 except:
@@ -3145,7 +3149,7 @@ try:
  plt.title(top10 +' '+ 'Closing Time DCU Trend ({})'.format(t10_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top10.png'.format(user,top10))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends\{1}_Top10.png'.format(user,top10))
  plt.close()
     
 except:
@@ -3176,20 +3180,20 @@ try:
     plt.title('Top Ten Closing Time DCU (Abnormal)')
     plt.xlabel('Count')
     plt.ylabel('Closing Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Top_Ten_Closing_Time_DCU (Abnormal).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Top_Ten_Closing_Time_DCU (Abnormal).png')
     plt.close()
 except:
     print('No Top Ten Closing Time Result (Abnormal)')
     plt.close()
 
-
+'''
 #Delete all .png file in a folder (Top Ten Closing Time Trend DCU) (Zero)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Top 1 No. of Closing Time Trend (Abnormal) --> df260
 try:
@@ -3207,7 +3211,7 @@ try:
  plt.title(top1 +' '+ 'Closing Time DCU Trend ({})'.format(t1_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top1.png'.format(user,top1))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top1.png'.format(user,top1))
  plt.close()
     
 except:
@@ -3231,7 +3235,7 @@ try:
  plt.title(top2 +' '+ 'Closing Time DCU Trend ({})'.format(t2_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top2.png'.format(user,top2))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top2.png'.format(user,top2))
  plt.close()
     
 except:
@@ -3255,7 +3259,7 @@ try:
  plt.title(top3 +' '+ 'Closing Time DCU Trend ({})'.format(t3_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top3.png'.format(user,top3))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top3.png'.format(user,top3))
  plt.close()
     
 except:
@@ -3279,7 +3283,7 @@ try:
  plt.title(top4 +' '+ 'Closing Time DCU Trend ({})'.format(t4_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top4.png'.format(user,top4))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top4.png'.format(user,top4))
  plt.close()
     
 except:
@@ -3303,7 +3307,7 @@ try:
  plt.title(top5 +' '+ 'Closing Time DCU Trend ({})'.format(t5_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top5.png'.format(user,top5))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top5.png'.format(user,top5))
  plt.close()
     
 except:
@@ -3327,7 +3331,7 @@ try:
  plt.title(top6 +' '+ 'Closing Time DCU Trend ({})'.format(t6_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top6.png'.format(user,top6))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top6.png'.format(user,top6))
  plt.close()
     
 except:
@@ -3351,7 +3355,7 @@ try:
  plt.title(top7 +' '+ 'Closing Time DCU Trend ({})'.format(t7_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top7.png'.format(user,top7))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top7.png'.format(user,top7))
  plt.close()
     
 except:
@@ -3375,7 +3379,7 @@ try:
  plt.title(top8 +' '+ 'Closing Time DCU Trend ({})'.format(t8_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top8.png'.format(user,top8))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top8.png'.format(user,top8))
  plt.close()
     
 except:
@@ -3399,7 +3403,7 @@ try:
  plt.title(top9 +' '+ 'Closing Time DCU Trend ({})'.format(t9_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top9.png'.format(user,top9))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top9.png'.format(user,top9))
  plt.close()
     
 except:
@@ -3423,7 +3427,7 @@ try:
  plt.title(top10 +' '+ 'Closing Time DCU Trend ({})'.format(t10_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top10.png'.format(user,top10))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends\{1}_Top10.png'.format(user,top10))
  plt.close()
     
 except:
@@ -3454,20 +3458,20 @@ try:
     plt.title('Top Ten Closing Time DCU (Zero)')
     plt.xlabel('Count')
     plt.ylabel('Closing Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Top_Ten_Closing_Time_DCU (Zero).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Top_Ten_Closing_Time_DCU (Zero).png')
     plt.close()
 except:
     print('No Top Ten Closing Time Result (Zero)')
     plt.close()
 
-
+'''
 #Delete all .png file in a folder (Top Ten Closing Time Trend DCU) (Zero)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 #Top 1 No. of Closing Time Trend (Zero) --> df157
 try:
@@ -3485,7 +3489,7 @@ try:
  plt.title(top1 +' '+ 'Closing Time DCU Trend ({})'.format(t1_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top1.png'.format(user,top1))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top1.png'.format(user,top1))
  plt.close()
     
 except:
@@ -3509,7 +3513,7 @@ try:
  plt.title(top2 +' '+ 'Closing Time DCU Trend ({})'.format(t2_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top2.png'.format(user,top2))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top2.png'.format(user,top2))
  plt.close()
     
 except:
@@ -3533,7 +3537,7 @@ try:
  plt.title(top3 +' '+ 'Closing Time DCU Trend ({})'.format(t3_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top3.png'.format(user,top3))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top3.png'.format(user,top3))
  plt.close()
     
 except:
@@ -3557,7 +3561,7 @@ try:
  plt.title(top4 +' '+ 'Closing Time DCU Trend ({})'.format(t4_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top4.png'.format(user,top4))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top4.png'.format(user,top4))
  plt.close()
     
 except:
@@ -3581,7 +3585,7 @@ try:
  plt.title(top5 +' '+ 'Closing Time DCU Trend ({})'.format(t5_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top5.png'.format(user,top5))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top5.png'.format(user,top5))
  plt.close()
     
 except:
@@ -3605,7 +3609,7 @@ try:
  plt.title(top6 +' '+ 'Closing Time DCU Trend ({})'.format(t6_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top6.png'.format(user,top6))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top6.png'.format(user,top6))
  plt.close()
     
 except:
@@ -3629,7 +3633,7 @@ try:
  plt.title(top7 +' '+ 'Closing Time DCU Trend ({})'.format(t7_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top7.png'.format(user,top7))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top7.png'.format(user,top7))
  plt.close()
     
 except:
@@ -3653,7 +3657,7 @@ try:
  plt.title(top8 +' '+ 'Closing Time DCU Trend ({})'.format(t8_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top8.png'.format(user,top8))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top8.png'.format(user,top8))
  plt.close()
     
 except:
@@ -3677,7 +3681,7 @@ try:
  plt.title(top9 +' '+ 'Closing Time DCU Trend ({})'.format(t9_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top9.png'.format(user,top9))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top9.png'.format(user,top9))
  plt.close()
     
 except:
@@ -3701,21 +3705,21 @@ try:
  plt.title(top10 +' '+ 'Closing Time DCU Trend ({})'.format(t10_speed))
  plt.ylabel('Count')
  plt.xlabel('Date')
- plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top10.png'.format(user,top10))
+ #plt.savefig(r'C:\Users\{0}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends\{1}_Top10.png'.format(user,top10))
  plt.close()
     
 except:
     print('No Top10 Closing Time Trend (Zero)')
     plt.close()
 
-
+'''
 # Delete all .png file in a folder (Closing Time Range Count)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Closing Time Group Count with a particular range (3.6-3.9) -->  df274
 try:
@@ -3735,7 +3739,7 @@ try:
     plt.title('Closing Time Range Count (3.6-3.9)')
     plt.xlabel('Count')
     plt.ylabel('Closing Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count\Closing_Time_Range_Count(3.6-3.9).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count\Closing_Time_Range_Count(3.6-3.9).png')
     plt.close()
     
 except:
@@ -3761,7 +3765,7 @@ try:
     plt.title('Closing Time Range Count (4.0-4.9)')
     plt.xlabel('Count')
     plt.ylabel('Closing Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count\Closing_Time_Range_Count(4.0-4.9).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count\Closing_Time_Range_Count(4.0-4.9).png')
     plt.close()
     
 except:
@@ -3787,7 +3791,7 @@ try:
     plt.title('Closing Time Range Count (5.0-9.9)')
     plt.xlabel('Count')
     plt.ylabel('Closing Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count\Closing_Time_Range_Count(5.0-9.9).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count\Closing_Time_Range_Count(5.0-9.9).png')
     plt.close()
     
 except:
@@ -3813,7 +3817,7 @@ try:
     plt.title('Closing Time Range Count (>9.9)')
     plt.xlabel('Count')
     plt.ylabel('Closing Time DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count\Closing_Time_Range_Count(9.9...).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count\Closing_Time_Range_Count(9.9...).png')
     plt.close()
     
 except:
@@ -3855,14 +3859,14 @@ df179 = pd.DataFrame(df179.groupby(['Pressure Rise']).size(),columns=['Pressure 
 df179 = df179.sort_values(by='Pressure Rise Count',ascending = False)
 df179 = df179.reset_index(drop = True)
 
-
+'''
 # Delete all .png file in a folder (Main_Pressure_Rise_Distribution)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Distributions\Pressure Rise')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Generate Graph for analyzing Pressure Rise -->  df180
 try:
@@ -3873,7 +3877,7 @@ try:
  plt.title('Pressure Rise Distribution')
  plt.xlabel('Count')
  plt.ylabel('Pressure Rise')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Main_Pressure\Distributions\Pressure Rise\Pressure_Rise_Distribution.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Main_Pressure\Distributions\Pressure Rise\Pressure_Rise_Distribution.png')
  plt.close()
     
 except:
@@ -3892,14 +3896,14 @@ df187 = pd.DataFrame(df187.groupby(['Source','Pressure Rise']).size(),columns=['
 df187 = df187.reindex(columns=['Source','Pressure Rise','Pressure Rise Count'])
 df187 = df187.sort_values(by='Pressure Rise Count',ascending = False)
 
-
+'''
 # Delete all .png file in a folder (Main_Pressure_Rise_Top_Ten)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Top Ten Main Pressure Rise Graph  -->  df188 (For Top_Ten_Graph, Sorted) || df203 (For Top_Ten_Trend, unsorted)
 
@@ -3919,21 +3923,21 @@ try:
     plt.legend(['0.009: Red \n0.008: Blue\n0.007: Green'],loc='best',edgecolor = 'black',prop = {'size':15})
     plt.xlabel('Count')
     plt.ylabel('Pressure Rise Train Car')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Top_Ten_Pressure_Rise.png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Top_Ten_Pressure_Rise.png')
     plt.close()
     
 except:
     print('No Top Ten Pressure Rise Result')
     plt.close()
 
-
+'''
 # Delete all .png file in a folder (Main_Pressure_Rise_Trend)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Main Pressure Fall Alarm Excel Files  -->  df181
 df181 = pd.DataFrame(df6[['预警描述','车组','车厢','预警时间']]).copy()
@@ -3967,14 +3971,14 @@ df184 = pd.DataFrame(df184.groupby(['Pressure Fall']).size(),columns=['Pressure 
 df184 = df184.sort_values(by='Pressure Fall Count',ascending = False)
 df184 = df184.reset_index(drop = True)
 
-
+'''
 # Delete all .png file in a folder (Main_Pressure_Fall_Distribution)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Distributions\Pressure Fall')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Generate Graph for analyzing Pressure Fall -->  df185
 try:
@@ -3985,7 +3989,7 @@ try:
  plt.title('Pressure Fall Distribution')
  plt.xlabel('Count')
  plt.ylabel('Pressure Fall')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Main_Pressure\Distributions\Pressure Fall\Pressure_Fall_Distribution.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Main_Pressure\Distributions\Pressure Fall\Pressure_Fall_Distribution.png')
  plt.close()
     
 except:
@@ -4004,14 +4008,14 @@ df199 = df199.reindex(columns=['Source','Pressure Fall','Pressure Fall Count'])
 df199 = df199.sort_values(by='Pressure Fall Count',ascending = False)
 
 
-
+'''
 # Delete all .png file in a folder (Main_Pressure_Fall_Top_Ten)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Fall')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Top Ten Main Pressure Fall Graph  -->  df200 (For Top_Ten_Graph, Sorted) || df201 (For Top_Ten_Trend, unsorted)
 
@@ -4031,27 +4035,27 @@ try:
     plt.legend(['-0.011: Red\n-0.012: Blue\n-0.014: Green\n-0.015: Orange\n-0.016: Pink\n-0.017 : Purple\n-0.018: Yellow '],loc='best',edgecolor = 'black',prop = {'size':15})
     plt.xlabel('Count')
     plt.ylabel('Pressure Fall Train Car')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Fall\Top_Ten_Pressure_Fall.png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Fall\Top_Ten_Pressure_Fall.png')
     plt.close()
     
 except:
     print('No Top Ten Pressure Fall Result')
     plt.close()
 
-
+'''
 # Delete all .png file in a folder (Main_Pressure_Fall_Trend)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Fall\Pressure_Fall_Trend')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 
 # Merge Main Pressure Rise and Fall (Group Count) into a single dataframe  -->  df186
 df186 = pd.DataFrame(pd.concat([df179,df184],axis=1))
 df186 = df186.fillna('               // ')
 
-
+'''
 # Final Main Pressure Rise and Fall Combined File
 
 df178 = df178.reindex(columns = ['车组','车厢','预警时间','Pressure Rise','Main Pressure Rise Standard'])
@@ -4171,7 +4175,7 @@ worksheet1.set_column(0,0, None, None, {'hidden': True})
 worksheet2.set_column(0,0, None, None, {'hidden': True})
 
 writer.close()
-
+'''
 #######################################################################################################################################################################################
 
 
