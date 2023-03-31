@@ -5,7 +5,7 @@
   </head>
   <body>
    <ol>
-   <h1>  
+   <h2>  
      <li><I>Obstacle Detected</I></li>
      <hr>
      <li><I>Opening Time</I></li>
@@ -15,7 +15,7 @@
      <li><I>Pressure Rise</I></li>
      <hr>
      <li><I>Pressure Fall</I></li>
-   </h1>
+   </h2>
    </ol>   
   </body>
 </html>
