@@ -14,7 +14,7 @@ from time import sleep
 import string
 from matplotlib.ticker import MaxNLocator
 import plotly.express as px
-from load_data import get_dataframe , map_id, map_stname, user, opening_range
+from load_data import get_dataframe , map_id, map_stname, user, opening_range, StartDate, EndDate
 from dash import Dash, dcc, html, Input, Output, dash_table
 from dash.exceptions import PreventUpdate
 
@@ -402,6 +402,9 @@ except:
 
 # In[1]:
 
+# Change datetime to date (Formatting)
+StartDate = StartDate.date()
+EndDate = EndDate.date()
 
 # Create a a dashboard for Opening Time Alarm
 
@@ -449,7 +452,7 @@ try:
   
 
     layout = html.Div([
-     html.Div([html.Header("Opening Time"),
+     html.Div([html.Header(f"Opening Time ({StartDate} to {EndDate})"),
      html.Label(['Choose a graph:'],style={'font-weight': 'bold'}),
      dcc.RadioItems(
                     id='radio_new_op',
