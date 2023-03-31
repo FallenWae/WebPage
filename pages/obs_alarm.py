@@ -231,6 +231,7 @@ df51 = df51.sort_values(by=['sortout'])
 df51 = df51.drop(columns=['sortout'], axis = 1)
 df51 = df51.fillna(' ')
 
+'''
 # Hence , Joint Current Station into the Obstacle Detected Excel File (.xlsx) 
 df52 = pd.DataFrame(df51['预警描述'])
 df52['Current_Station'] = df52['预警描述'].str.extract('(?:.*Station)([0-9]+)(?:.0)')
@@ -298,7 +299,7 @@ worksheet.set_column(1,33,15.9)
 worksheet.set_column(0,0, None, None, {'hidden': True})
 writer.close()
 
-
+'''
 # In[20]:
 
 
@@ -340,6 +341,7 @@ df102 = df102.sort_values(by=['sortout'],ignore_index = True)
 df102 = df102.drop(columns=['sortout','车组','车厢','Detected DCU'],axis = 1)
 df102 = df102.reindex(columns=['Source (Filter)','预警时间'])
 
+'''
 # Convert dataframe to .xlsx file (excel files ) with different formats (Obstacle Detected Count)
 df64 = df64.fillna('               // ')
 df102 = df102.fillna('               // ')
@@ -428,7 +430,7 @@ target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 # In[22]:
 
 
@@ -445,7 +447,7 @@ try:
     plt.title('T1 Obstacle Detected')
     plt.xlabel('Count')
     plt.ylabel('Obstacle Detected DCU')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T1.png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T1.png')
     plt.close()
 
 except:
@@ -469,7 +471,7 @@ try:
  plt.title('T2 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T2.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T2.png')
  plt.close()
 
 except:
@@ -493,7 +495,7 @@ try:
  plt.title('T3 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T3.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T3.png')
  plt.close()
 
 except:
@@ -517,7 +519,7 @@ try:
  plt.title('T4 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T4.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T4.png')
  plt.close()
 
 except:
@@ -538,7 +540,7 @@ try:
  plt.title('T5 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T5.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T5.png')
  plt.close()
 
 except:
@@ -559,7 +561,7 @@ try:
  plt.title('T6 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T6.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T6.png')
  plt.close()
 
 except:
@@ -580,7 +582,7 @@ try:
  plt.title('T7 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T7.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T7.png')
  plt.close()
 
 except:
@@ -601,7 +603,7 @@ try:
  plt.title('T8 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T8.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T8.png')
  plt.close()
 
 except:
@@ -622,7 +624,7 @@ try:
  plt.title('T9 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T9.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T9.png')
  plt.close()
 
 except:
@@ -642,7 +644,7 @@ try:
  plt.title('T10 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T10.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T10.png')
  plt.close()
 
 except:
@@ -662,7 +664,7 @@ try:
  plt.title('T11 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T11.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T11.png')
  plt.close()
 
 except:
@@ -683,7 +685,7 @@ try:
  plt.title('T12 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T12.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T12.png')
  plt.close()
 
 except:
@@ -703,7 +705,7 @@ try:
  plt.title('T13 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T13.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T13.png')
  plt.close()
 
 except:
@@ -723,7 +725,7 @@ try:
  plt.title('T14 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T14.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T14.png')
  plt.close()
 
 except:
@@ -744,7 +746,7 @@ try:
  plt.title('T15 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T15.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T15.png')
  plt.close()
 
 except:
@@ -765,7 +767,7 @@ try:
  plt.title('T16 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T16.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T16.png')
  plt.close()
 
 except:
@@ -786,7 +788,7 @@ try:
  plt.title('T17 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T17.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T17.png')
  plt.close()
 
 except:
@@ -807,7 +809,7 @@ try:
  plt.title('T18 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T18.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T18.png')
  plt.close()
 
 except:
@@ -829,7 +831,7 @@ try:
  plt.title('T19 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T19.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T19.png')
  plt.close()
 
 except:
@@ -850,7 +852,7 @@ try:
  plt.title('T20 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T20.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T20.png')
  plt.close()
 
 except:
@@ -871,7 +873,7 @@ try:
  plt.title('T21 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T21.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T21.png')
  plt.close()
 
 except:
@@ -892,7 +894,7 @@ try:
  plt.title('T22 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T22.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T22.png')
  plt.close()
 
 except:
@@ -913,7 +915,7 @@ try:
  plt.title('T23 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T23.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T23.png')
  plt.close()
 
 except:
@@ -934,7 +936,7 @@ try:
  plt.title('T24 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T24.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T24.png')
  plt.close()
 
 except:
@@ -955,7 +957,7 @@ try:
  plt.title('T25 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T25.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T25.png')
  plt.close()
 
 except:
@@ -976,7 +978,7 @@ try:
  plt.title('T26 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T26.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T26.png')
  plt.close()
 
 except:
@@ -997,7 +999,7 @@ try:
  plt.title('T27 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T27.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T27.png')
  plt.close()
 
 except:
@@ -1018,7 +1020,7 @@ try:
  plt.title('T28 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T28.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T28.png')
  plt.close()
 
 except:
@@ -1039,7 +1041,7 @@ try:
  plt.title('T29 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T29.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T29.png')
  plt.close()
 
 except:
@@ -1060,7 +1062,7 @@ try:
  plt.title('T30 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T30.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T30.png')
  plt.close()
 except:
     print('No T30 Obstacle Detected Alarm')
@@ -1080,7 +1082,7 @@ try:
  plt.title('T31 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T31.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T31.png')
  plt.close()
 
 except:
@@ -1101,7 +1103,7 @@ try:
  plt.title('T32 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T32.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T32.png')
  plt.close()
 
 except:
@@ -1122,7 +1124,7 @@ try:
  plt.title('T33 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T33.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T33.png')
  plt.close()
 except:
     print('No T33 Obstacle Detected Alarm')
@@ -1142,7 +1144,7 @@ try:
  plt.title('T34 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T34.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T34.png')
  plt.close()
 except:
     print('No T34 Obstacle Detected Alarm')
@@ -1162,7 +1164,7 @@ try:
  plt.title('T35 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T35.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T35.png')
  plt.close()
 except:
     print('No T35 Obstacle Detected Alarm')
@@ -1183,7 +1185,7 @@ try:
  plt.title('T36 Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T36.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts\T36.png')
  plt.close()
 except:
     print('No T36 Obstacle Detected Alarm')
@@ -1198,14 +1200,14 @@ df213['Type'] = 'T' + df213['Type']
 df213 = df213.sort_values(by=['sort1','sort2'])
 
 
-
+'''
 #Delete all .png file in a folder (Top Ten Obstacle Detected Distribution)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Top_Ten')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 # In[27]:
 
 
@@ -1219,20 +1221,20 @@ try:
  plt.title('Top Ten Obstacle Detected')
  plt.xlabel('Count')
  plt.ylabel('Obstacle Detected DCU')
- plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Obstacle_Detected_DCU.png')
+ #plt.savefig(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Obstacle_Detected_DCU.png')
  plt.close()
 except:
     print('No Top Ten Result')
     plt.close()
 
-
+'''
 #Delete all .png file in a folder (Top Ten Obstacle Detected Trend)
 folder_path = (fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend')
 target = os.listdir(folder_path)
 for images in target:
     if images.endswith(".png"):
         os.remove(os.path.join(folder_path, images))
-
+'''
 # In[28]:
 
 
@@ -1277,7 +1279,7 @@ df104.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top1 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top1.png'.format(user,top1))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top1.png'.format(user,top1))
 plt.close()
 
 
@@ -1297,7 +1299,7 @@ df105.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top2 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top2.png'.format(user,top2))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top2.png'.format(user,top2))
 plt.close()
 
 
@@ -1315,7 +1317,7 @@ df106.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top3 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top3.png'.format(user,top3))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top3.png'.format(user,top3))
 plt.close()
 
 
@@ -1332,7 +1334,7 @@ df107.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top4 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top4.png'.format(user,top4))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top4.png'.format(user,top4))
 plt.close()
 
 
@@ -1349,7 +1351,7 @@ df108.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top5 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top5.png'.format(user,top5))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top5.png'.format(user,top5))
 plt.close()
 
 
@@ -1366,7 +1368,7 @@ df109.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top6 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top6.png'.format(user,top6))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top6.png'.format(user,top6))
 plt.close()
 
 
@@ -1383,7 +1385,7 @@ df110.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top7 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top7.png'.format(user,top7))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top7.png'.format(user,top7))
 plt.close()
 
 
@@ -1401,7 +1403,7 @@ df111.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top8 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top8.png'.format(user,top8))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top8.png'.format(user,top8))
 plt.close()
 
 
@@ -1418,7 +1420,7 @@ df112.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top9 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top9.png'.format(user,top9))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top9.png'.format(user,top9))
 plt.close()
 
 
@@ -1435,7 +1437,7 @@ df113.plot.line(x= '预警时间', y='Obstacle Detected Count', ax=ax, style='b'
 plt.xlabel('Date')
 plt.ylabel('Count')
 plt.title(top10 +' '+ 'Obstacle Detected Trend')
-plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top10.png'.format(user,top10))
+#plt.savefig(r'C:\Users\{0}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend\{1}_Top10.png'.format(user,top10))
 plt.close()
 
 # In[31]:
