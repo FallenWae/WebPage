@@ -4,10 +4,11 @@
     <h2>Dashboard</h2>
   </head>
   <body>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
+    <li>Obstacle Detected</li>
+    <li>Opening Time</li>
+    <li>Closing Time</li>
+    <li>Pressure Rise</li>
+    <li>Pressure Fall</li>
   </body>
 </html>
   
