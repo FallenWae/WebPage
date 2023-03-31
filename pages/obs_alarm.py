@@ -231,75 +231,6 @@ df51 = df51.sort_values(by=['sortout'])
 df51 = df51.drop(columns=['sortout'], axis = 1)
 df51 = df51.fillna(' ')
 
-'''
-# Hence , Joint Current Station into the Obstacle Detected Excel File (.xlsx) 
-df52 = pd.DataFrame(df51['预警描述'])
-df52['Current_Station'] = df52['预警描述'].str.extract('(?:.*Station)([0-9]+)(?:.0)')
-df52 = df52.drop(columns= '预警描述',axis = 1)
-df55 = pd.concat([df51,df52],axis=1)
-df55 = df55.drop(columns = ['预警描述','预警状态'],axis = 1)
-df55['Current_Station'] = df55['Current_Station'].astype("int")
-df55['Platform ID'] = df55['Current_Station'].apply(lambda idxx : map_id(idxx))
-df55["Current_Station"]= df55["Current_Station"].apply(lambda name : map_stname(name))
-df55 = df55.fillna('               // ')
-
-df55 = df55.reindex(columns=['车组','车厢','预警时间','Current_Station','Platform ID','DCU1 Obstacle Detected','DCU2 Obstacle Detected','DCU3 Obstacle Detected','DCU4 Obstacle Detected','DCU5 Obstacle Detected','DCU6 Obstacle Detected','DCU7 Obstacle Detected','DCU8 Obstacle Detected','DCU9 Obstacle Detected','DCU10 Obstacle Detected','DCU11 Obstacle Detected','DCU12 Obstacle Detected'])
-
-writer = pd.ExcelWriter(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Alarm.xlsx') 
-df55.to_excel(writer, sheet_name='Obstacle_Detected_Alarm',index = True, startrow = 1, na_rep='NaN', header=False)
-
-workbook = writer.book
-worksheet = writer.sheets['Obstacle_Detected_Alarm']
-cols = ['车组','车厢','预警时间','Current_Station','Platform ID','DCU1 Obstacle Detected','DCU2 Obstacle Detected','DCU3 Obstacle Detected','DCU4 Obstacle Detected','DCU5 Obstacle Detected','DCU6 Obstacle Detected','DCU7 Obstacle Detected','DCU8 Obstacle Detected','DCU9 Obstacle Detected','DCU10 Obstacle Detected','DCU11 Obstacle Detected','DCU12 Obstacle Detected']
-colors = ['#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD']
-
-
-(max_row, max_col) = df55.shape
-
-# Make the columns wider for clarity.
-worksheet.set_column(0,  max_col - 1, 12)
-
-
-# Set the autofilter.
-worksheet.autofilter(0, 0, max_row, max_col )
-
-# Add a header format.
-header_format = workbook.add_format({
-    'bold': True,
-    'text_wrap': True,
-    'fg_color': '#D7E4BC',
-    'align' : 'center',
-    'border': 1})
-
-
-# Write the column headers with the defined format.
-for col_num, value in enumerate(df55.columns.values):
-    worksheet.write(0, col_num + 1, value, header_format)
-    
-# Fill in the colour for separate the related columns
-d = dict(zip(range(25), list(string.ascii_uppercase)[1:]))
-
-for i, col in enumerate(cols):
-    f1 = workbook.add_format({'bg_color': colors[i],'border': 1})
-    excel_header = str(d[df55.columns.get_loc(col)])
-    len_df55 = str(len(df55.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df55
-    worksheet.conditional_format(rng, {'type': 'no_blanks',
-                                       'format': f1})
-
-#Set the row height
-worksheet.set_default_row(27)
-
-#Set the column width ( <!-- Cutomize -- > ) 
-worksheet.set_column(1,33,15.9)
-
-
-# hide index using xlsxwriter
-worksheet.set_column(0,0, None, None, {'hidden': True})
-writer.close()
-
-'''
 # In[20]:
 
 
@@ -341,96 +272,7 @@ df102 = df102.sort_values(by=['sortout'],ignore_index = True)
 df102 = df102.drop(columns=['sortout','车组','车厢','Detected DCU'],axis = 1)
 df102 = df102.reindex(columns=['Source (Filter)','预警时间'])
 
-'''
-# Convert dataframe to .xlsx file (excel files ) with different formats (Obstacle Detected Count)
-df64 = df64.fillna('               // ')
-df102 = df102.fillna('               // ')
 
-writer = pd.ExcelWriter(fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Count.xlsx') 
-df64.to_excel(writer, sheet_name='Obstacle_Detected_Count',index = True, startrow = 1, na_rep='NaN', header=False)
-df102.to_excel(writer, sheet_name='Filter',index = True, startrow = 1, na_rep='NaN', header=False)
-
-
-workbook = writer.book
-worksheet = writer.sheets['Obstacle_Detected_Count']
-worksheet1 = writer.sheets['Filter']
-
-cols = ['Source','Obstacle Detected Count']
-cols1 =['Source (Filter)','预警时间']
-colors = ['#A5D8DD','#A5D8DD']
-colors1 = ['#9BEE95','#9BEE95']
-
-(max_row, max_col) = df64.shape
-(max_row1, max_col1) = df102.shape
-
-# Make the columns wider for clarity.
-worksheet.set_column(0,  max_col - 1, 12)
-worksheet1.set_column(0,  max_col1 - 1, 12)
-
-
-# Set the autofilter.
-worksheet.autofilter(0, 0, max_row, max_col )
-worksheet1.autofilter(0, 0, max_row1, max_col1 )
-
-
-# Add a header format.
-header_format = workbook.add_format({
-    'bold': True,
-    'text_wrap': True,
-    'fg_color': '#D7E4BC',
-    'align' : 'center',
-    'border': 1})
-
-
-# Write the column headers with the defined format.
-for col_num, value in enumerate(df64.columns.values):
-    worksheet.write(0, col_num + 1, value, header_format)
-    
-for col_num, value in enumerate(df102.columns.values):
-    worksheet1.write(0, col_num + 1, value, header_format)
-    
-# Fill in the colour for separate the related columns
-d = dict(zip(range(25), list(string.ascii_uppercase)[1:]))
-
-for i, col in enumerate(cols):
-    f1 = workbook.add_format({'bg_color': colors[i],'border': 1})
-    excel_header = str(d[df64.columns.get_loc(col)])
-    len_df64 = str(len(df64.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df64
-    worksheet.conditional_format(rng, {'type': 'no_blanks',
-                                       'format': f1})
-for i, col in enumerate(cols1):
-    f1 = workbook.add_format({'bg_color': colors1[i],'border': 1})
-    excel_header = str(d[df102.columns.get_loc(col)])
-    len_df102 = str(len(df102.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df102
-    worksheet1.conditional_format(rng, {'type': 'no_blanks',
-                                       'format': f1})
-
-
-#Set the row height
-worksheet.set_default_row(27)
-worksheet1.set_default_row(27)
-
-#Set the column width ( <!-- Cutomize -- > ) 
-worksheet.set_column(1,33,20)
-worksheet1.set_column(1,33,20)
-
-
-# Hide index using xlsxwriter
-worksheet.set_column(0,0, None, None, {'hidden': True})
-worksheet1.set_column(0,0, None, None, {'hidden': True})
-writer.close()
-
-#Delete all .png file in a folder (All Obstacle Detected Images)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Obstacle_Detected_Charts')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 # In[22]:
 
 
@@ -1200,14 +1042,6 @@ df213['Type'] = 'T' + df213['Type']
 df213 = df213.sort_values(by=['sort1','sort2'])
 
 
-'''
-#Delete all .png file in a folder (Top Ten Obstacle Detected Distribution)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Top_Ten')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 # In[27]:
 
 
@@ -1227,14 +1061,6 @@ except:
     print('No Top Ten Result')
     plt.close()
 
-'''
-#Delete all .png file in a folder (Top Ten Obstacle Detected Trend)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Obstacle_Detected\Top_Ten\Top_Ten_Trend')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 # In[28]:
 
 
