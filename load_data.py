@@ -227,49 +227,7 @@ def opening_range(op_range):
 
 # Get the current computer user's name
 user = getpass.getuser()
-'''
-# Generate Destination Folders and Sub-Folders
-try:
-    test_path = fr'C:\Users\{user}\Downloads'
-    newfolder = os.path.join(test_path,'location')
-    
-    # Main Alarms Folders
-    for subfolder in ['Obstacle_Detected', 'Opening_Closing_Time', 'Main_Pressure']:
-        os.makedirs(os.path.join(newfolder, subfolder))
-        
-    # Obstacle Detected Folders
-    for subfolder in['Top_Ten','Obstacle_Detected_Charts']:
-        os.makedirs(os.path.join(newfolder,'Obstacle_Detected',subfolder))
-    os.makedirs(os.path.join(newfolder,'Obstacle_Detected','Top_Ten','Top_Ten_Trend'))
-    
-    # Opening_Closing Time Folders
-    for subfolder in ['Top_Ten','Distributions']:
-        os.makedirs(os.path.join(newfolder,'Opening_Closing_Time',subfolder))
-    for subfolder in ['Opening_Time','Closing_Time']:
-        os.makedirs(os.path.join(newfolder,'Opening_Closing_Time','Top_Ten',subfolder))
-    for subfolder in ['Believed_To_Be_Normal','Potentially_Problematic','Abnormal','Zero']:
-        os.makedirs(os.path.join(newfolder,'Opening_Closing_Time','Top_Ten','Opening_Time',subfolder,'Trends'))
-        os.makedirs(os.path.join(newfolder,'Opening_Closing_Time','Top_Ten','Closing_Time',subfolder,'Trends'))
-    for subfolder in ['Opening_Time','Closing_Time']:
-        os.makedirs(os.path.join(newfolder,'Opening_Closing_Time','Distributions',subfolder))
-    os.makedirs(os.path.join(newfolder, 'Opening_Closing_Time', 'Distributions','Opening_Time','Range_Count'))
-    os.makedirs(os.path.join(newfolder, 'Opening_Closing_Time', 'Distributions','Closing_Time','Range_Count'))
-    #os.makedirs(os.path.join(newfolder, 'Main_Pressure', 'Top_Ten','Pressure Fall'))
-    
-    # Main Pressure Folders
-    for subfolder in ['Top_Ten','Distributions']:
-        os.makedirs(os.path.join(newfolder,'Main_Pressure',subfolder))
-    for subfolder in ['Pressure Rise','Pressure Fall']:
-        os.makedirs(os.path.join(newfolder,'Main_Pressure','Top_Ten',subfolder))
-    os.makedirs(os.path.join(newfolder,'Main_Pressure','Top_Ten','Pressure Rise','Pressure_Rise_Trend'))  
-    os.makedirs(os.path.join(newfolder,'Main_Pressure','Top_Ten','Pressure Fall','Pressure_Fall_Trend'))
-    for subfolder in ['Pressure Rise','Pressure Fall']:
-        os.makedirs(os.path.join(newfolder,'Main_Pressure','Distributions', subfolder))
-    
-    
-except:
-    print('Destination Folder Already Generated!')
-'''
+
 # In[4]:
 
 
@@ -742,128 +700,6 @@ except:
     df35 = df35.dropna(axis=0 ,how = 'any')
     pass
 
-'''
-# Merge all files into a single file (ClosingTime Only)
-df36 = pd.concat([df24,df25,df26,df27,df28,df29,df30,df31,df32,df33,df34,df35],axis = 0).reset_index()
-df36 = df36.sort_values(by=['sortout'])
-df36.drop(columns=['sortout'], axis = 1, inplace = True)
-df36['Current_Station_Closing'] = df36['预警描述'].str.extract('(?:.*Station)([0-9]+)(?:.0)')
-df36['Current_Station_Closing'] = df36['Current_Station_Closing'].astype("int")
-df36 = df36.reindex(columns=['车组','车厢','预警时间','Current_Station_Closing','DCU1 Closing Time','DCU2 Closing Time','DCU3 Closing Time','DCU4 Closing Time','DCU5 Closing Time','DCU6 Closing Time','DCU7 Closing Time','DCU8 Closing Time','DCU9 Closing Time','DCU10 Closing Time','DCU11 Closing Time','DCU12 Closing Time'])
-df36 = df36.fillna(' ')
-
-
-# Count the amount of Closing Time Alarm
-df37 = pd.DataFrame(df36.loc[df36['DCU1 Closing Time'].astype(str).str.contains('X')]['DCU1 Closing Time'].agg(['count']))
-df37['DCU2 Closing Time'] = df36.loc[df36['DCU2 Closing Time'].astype(str).str.contains('X')]['DCU2 Closing Time'].agg(['count'])
-df37['DCU3 Closing Time'] = df36.loc[df36['DCU3 Closing Time'].astype(str).str.contains('X')]['DCU3 Closing Time'].agg(['count'])
-df37['DCU4 Closing Time'] = df36.loc[df36['DCU4 Closing Time'].astype(str).str.contains('X')]['DCU4 Closing Time'].agg(['count'])
-df37['DCU5 Closing Time'] = df36.loc[df36['DCU5 Closing Time'].astype(str).str.contains('X')]['DCU5 Closing Time'].agg(['count'])
-df37['DCU6 Closing Time'] = df36.loc[df36['DCU6 Closing Time'].astype(str).str.contains('X')]['DCU6 Closing Time'].agg(['count'])
-df37['DCU7 Closing Time'] = df36.loc[df36['DCU7 Closing Time'].astype(str).str.contains('X')]['DCU7 Closing Time'].agg(['count'])
-df37['DCU8 Closing Time'] = df36.loc[df36['DCU8 Closing Time'].astype(str).str.contains('X')]['DCU8 Closing Time'].agg(['count'])
-df37['DCU9 Closing Time'] = df36.loc[df36['DCU9 Closing Time'].astype(str).str.contains('X')]['DCU9 Closing Time'].agg(['count'])
-df37['DCU10 Closing Time'] = df36.loc[df36['DCU10 Closing Time'].astype(str).str.contains('X')]['DCU10 Closing Time'].agg(['count'])
-df37['DCU11 Closing Time'] = df36.loc[df36['DCU11 Closing Time'].astype(str).str.contains('X')]['DCU11 Closing Time'].agg(['count'])
-df37['DCU12 Closing Time'] = df36.loc[df36['DCU12 Closing Time'].astype(str).str.contains('X')]['DCU12 Closing Time'].agg(['count'])
-
-
-# Merge all files into a single file (ClosingTime with Count)
-df38 = pd.concat([df36,df37],axis = 0)
-df38 = df38.fillna(' ')
-df38 = df38.set_axis(['车组 (Closing)','车厢 (Closing)','预警时间 (Closing)','Current_Station_Closing','DCU1 Closing Time','DCU2 Closing Time','DCU3 Closing Time','DCU4 Closing Time','DCU5 Closing Time','DCU6 Closing Time','DCU7 Closing Time','DCU8 Closing Time','DCU9 Closing Time','DCU10 Closing Time','DCU11 Closing Time','DCU12 Closing Time'], axis = 'columns')
-df38 = df38.reset_index(drop = True)
-
-
-#Summarize and Display the number of Opening and Closing Time Alarm 
-df23['Platform ID (Opening)'] = df23['Current_Station_Opening'].apply(lambda idxx : map_id(idxx))
-df23["Current_Station_Opening"]= df23["Current_Station_Opening"].apply(lambda name : map_stname(name))
-df38['Platform ID (Closing)'] = df38['Current_Station_Closing'].apply(lambda idxx : map_id(idxx))
-df38["Current_Station_Closing"]= df38["Current_Station_Closing"].apply(lambda name : map_stname(name))
-df23 = df23.reindex(columns = ['车组 (Opening)','车厢 (Opening)','预警时间 (Opening)','Current_Station_Opening','Platform ID (Opening)','DCU1 Opening Time','DCU2 Opening Time','DCU3 Opening Time','DCU4 Opening Time','DCU5 Opening Time','DCU6 Opening Time','DCU7 Opening Time','DCU8 Opening Time','DCU9 Opening Time','DCU10 Opening Time','DCU11 Opening Time','DCU12 Opening Time']) 
-df38 = df38.reindex(columns = ['车组 (Closing)','车厢 (Closing)','预警时间 (Closing)','Current_Station_Closing','Platform ID (Closing)','DCU1 Closing Time','DCU2 Closing Time','DCU3 Closing Time','DCU4 Closing Time','DCU5 Closing Time','DCU6 Closing Time','DCU7 Closing Time','DCU8 Closing Time','DCU9 Closing Time','DCU10 Closing Time','DCU11 Closing Time','DCU12 Closing Time']) 
-df23 = df23.fillna('               // ')
-df38 = df38.fillna('               // ')
-
-writer = pd.ExcelWriter(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Opening_Closing_Time_Alarm.xlsx') 
-df23.to_excel(writer, sheet_name='Opening_Time_Alarm',index = True, startrow = 1, na_rep='NaN', header=False)
-df38.to_excel(writer, sheet_name='Closing_Time_Alarm',index = True, startrow = 1, na_rep='NaN', header=False)
-
-workbook = writer.book
-worksheet = writer.sheets['Opening_Time_Alarm']
-worksheet1 = writer.sheets['Closing_Time_Alarm']
-
-cols = ['车组 (Opening)','车厢 (Opening)','预警时间 (Opening)','Current_Station_Opening','Platform ID (Opening)','DCU1 Opening Time','DCU2 Opening Time','DCU3 Opening Time','DCU4 Opening Time','DCU5 Opening Time','DCU6 Opening Time','DCU7 Opening Time','DCU8 Opening Time','DCU9 Opening Time','DCU10 Opening Time','DCU11 Opening Time','DCU12 Opening Time']
-cols1 =['车组 (Closing)','车厢 (Closing)','预警时间 (Closing)','Current_Station_Closing','Platform ID (Closing)','DCU1 Closing Time','DCU2 Closing Time','DCU3 Closing Time','DCU4 Closing Time','DCU5 Closing Time','DCU6 Closing Time','DCU7 Closing Time','DCU8 Closing Time','DCU9 Closing Time','DCU10 Closing Time','DCU11 Closing Time','DCU12 Closing Time']
-colors = ['#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD']
-colors1 =['#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95']
-
-(max_row, max_col) = df23.shape
-(max_row1, max_col1) = df38.shape
-
-
-# Make the columns wider for clarity.
-worksheet.set_column(0,  max_col - 1, 12)
-worksheet1.set_column(0,  max_col1 - 1, 12)
-
-# Set the autofilter.
-worksheet.autofilter(0, 0, max_row, max_col )
-worksheet1.autofilter(0, 0, max_row1, max_col1 )
-
-# Add a header format.
-header_format = workbook.add_format({
-    'bold': True,
-    'text_wrap': True,
-    'fg_color': '#D7E4BC',
-    'align' : 'center',
-    'border': 1})
-
-
-# Write the column headers with the defined format.
-for col_num, value in enumerate(df23.columns.values):
-    worksheet.write(0, col_num + 1, value, header_format)
-
-for col_num, value in enumerate(df38.columns.values):
-    worksheet1.write(0, col_num + 1, value, header_format)
-    
-# Fill in the colour for separate the related columns
-d = dict(zip(range(25), list(string.ascii_uppercase)[1:]))
-
-
-# Fill in Opening Time Alarm Color
-for i, col in enumerate(cols):
-    f1 = workbook.add_format({'bg_color': colors[i],'border': 1})
-    excel_header = str(d[df23.columns.get_loc(col)])
-    len_df23 = str(len(df23.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df23
-    worksheet.conditional_format(rng, {'type': 'no_blanks',
-                                       'format': f1})
-
-# Fill in Closing Time Alarm Color
-for i, col in enumerate(cols1):
-    f1 = workbook.add_format({'bg_color': colors1[i],'border': 1})
-    excel_header = str(d[df38.columns.get_loc(col)])
-    len_df38 = str(len(df38.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df38
-    worksheet1.conditional_format(rng, {'type': 'no_blanks',
-                                       'format': f1})
-
-#Set the row height
-worksheet.set_default_row(27)
-worksheet1.set_default_row(27)
-
-#Set the column width ( <!-- Cutomize -- > ) 
-worksheet.set_column(1,36,20)
-worksheet1.set_column(1,36,20)
-
-
-# hide index using xlsxwriter
-worksheet.set_column(0,0, None, None, {'hidden': True})
-worksheet1.set_column(0,0, None, None, {'hidden': True})
-writer.close()
-'''
 
 # Opening Speed Alarm --> df56
 df56 = pd.DataFrame(df6[['预警描述','车组','车厢','预警时间']]).copy()
@@ -930,137 +766,6 @@ df60 = df60.set_axis(['车组 (Opening)', '车厢 (Opening)','预警时间 (Open
 df63 = pd.DataFrame(pd.concat([df57,df62],axis=1))
 df63 = df63.set_axis(['车组 (Closing)','车厢 (Closing)','预警时间 (Closing)','Current_Station_Closing','Closing DCU','Closing Speed','Closing Standard'],axis = 'columns')
 
-'''
-#Final Opening Time and Closing Time Excel File with Stardard (>3.?)
-df60['Platform ID (Opening)'] = df60['Current_Station_Opening'].apply(lambda idxx : map_id(idxx))
-df60["Current_Station_Opening"]= df60["Current_Station_Opening"].apply(lambda name : map_stname(name))
-df63['Platform ID (Closing)'] = df63['Current_Station_Closing'].apply(lambda idxx : map_id(idxx))
-df63["Current_Station_Closing"]= df63["Current_Station_Closing"].apply(lambda name : map_stname(name))
-df60 = df60.reindex(columns = ['车组 (Opening)', '车厢 (Opening)','Opening DCU','预警时间 (Opening)', 'Current_Station_Opening','Platform ID (Opening)','Opening Speed','Opening Standard'])
-df63 = df63.reindex(columns = ['车组 (Closing)','车厢 (Closing)','Closing DCU','预警时间 (Closing)','Current_Station_Closing','Platform ID (Closing)','Closing Speed','Closing Standard'])
-df60 = df60.fillna('               // ')
-df63 = df63.fillna('               // ')
-df167 = df167.fillna('               // ')
-
-writer = pd.ExcelWriter(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Opening_Closing_Time_Count.xlsx') 
-df60.to_excel(writer, sheet_name='Opening_Time_Count',index = True, startrow = 1, na_rep='NaN', header=False)
-df63.to_excel(writer, sheet_name='Closing_Time_Count',index = True, startrow = 1, na_rep='NaN', header=False)
-df167.to_excel(writer, sheet_name='Opening_Closing_Group_Count',index = True, startrow = 1, na_rep='NaN', header=False)
-
-workbook = writer.book
-worksheet = writer.sheets['Opening_Time_Count']
-worksheet1 = writer.sheets['Closing_Time_Count']
-worksheet2 = writer.sheets['Opening_Closing_Group_Count']
-
-cols = ['车组 (Opening)','车厢 (Opening)','Opening DCU','预警时间 (Opening)','Current_Station_Opening','Platform ID (Opening)','Opening Speed','Opening Standard']
-cols1 = ['车组 (Closing)','车厢 (Closing)','Closing DCU','预警时间 (Closing)','Current_Station_Closing','Platform ID (Closing)','Closing Speed','Closing Standard']
-cols2 =['Opening Speed (Group_Count)','Opening Time Count','Closing Speed (Group_Count)','Closing Time Count']
-colors = ['#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD']
-colors1 = ['#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95']
-colors2 = ['#FFC425','#FFC425','#F37735','#F37735']
-
-(max_row, max_col) = df60.shape
-(max_row1, max_col1) = df63.shape
-(max_row2, max_col2) = df167.shape
-
-
-# Make the columns wider for clarity.
-worksheet.set_column(0,  max_col - 1, 12)
-worksheet1.set_column(0,  max_col1 - 1, 12)
-worksheet2.set_column(0,  max_col2 - 1, 12)
-
-
-# Set the autofilter.
-worksheet.autofilter(0, 0, max_row, max_col )
-worksheet1.autofilter(0, 0, max_row1, max_col1 )
-worksheet2.autofilter(0, 0, max_row2, max_col2 )
-
-
-# Add a header format.
-header_format = workbook.add_format({
-    'bold': True,
-    'text_wrap': True,
-    'fg_color': '#D7E4BC',
-    'align' : 'center',
-    'border': 1})
-
-
-# Write the column headers with the defined format.
-for col_num, value in enumerate(df60.columns.values):
-    worksheet.write(0, col_num + 1, value, header_format)
-    
-for col_num, value in enumerate(df63.columns.values):
-    worksheet1.write(0, col_num + 1, value, header_format)
-
-for col_num, value in enumerate(df167.columns.values):
-    worksheet2.write(0, col_num + 1, value, header_format)
-
-# Fill in Opening Time Color
-d = dict(zip(range(25), list(string.ascii_uppercase)[1:]))
-
-for i, col in enumerate(cols):
-    f1 = workbook.add_format({'bg_color': colors[i],'border': 1})
-    excel_header = str(d[df60.columns.get_loc(col)])
-    len_df60 = str(len(df60.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df60
-    worksheet.conditional_format(rng, {'type': 'no_blanks',
-                                     'format': f1})
-
-# Fill in Closing Time Color
-for i, col in enumerate(cols1):
-    f1 = workbook.add_format({'bg_color': colors1[i],'border': 1})
-    excel_header = str(d[df63.columns.get_loc(col)])
-    len_df63 = str(len(df63.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df63
-    worksheet1.conditional_format(rng, {'type': 'no_blanks',
-                                       'format': f1})
-
-# Fill in Opening and Closing Color (Group Count)
-
-for i, col in enumerate(cols2):
-    f1 = workbook.add_format({'bg_color': colors2[i],'border': 1})
-    excel_header = str(d[df167.columns.get_loc(col)])
-    len_df167 = str(len(df167.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df167
-    worksheet2.conditional_format(rng, {'type': 'no_blanks',
-                                       'format': f1})
-    
-#Set the row height
-worksheet.set_default_row(27)
-worksheet1.set_default_row(27)
-worksheet2.set_default_row(27)
-
-#Set the column width ( <!-- Cutomize -- > ) 
-worksheet.set_column(1,30,20)
-worksheet1.set_column(1,30,20)
-worksheet2.set_column(1,30,20)
-
-
-# hide index using xlsxwriter
-worksheet.set_column(0,0, None, None, {'hidden': True})
-worksheet1.set_column(0,0, None, None, {'hidden': True})
-worksheet2.set_column(0,0, None, None, {'hidden': True})
-writer.close()
-'''
-'''
-# Delete all .png file in a folder (Opening_Time_Distribution)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-
-
-# Delete all .png file in a folder (Closing_Time_Distribution)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))        
-'''
 
 # Generate Graph for analyzing OpeningTime Alarm (Normal) -->  df58
 try:
@@ -1198,71 +903,6 @@ except:
 
 
 #####################################################################################################################################################################################
-'''
-# Delete all .png file in a folder [Top_Ten_Opening_Time_Graphs (Normal)]
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-
-
-# Delete all .png file in a folder [Top_Ten_Opening_Time_Graphs (Potentially_Problematic)]
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-
-
-# Delete all .png file in a folder [Top_Ten_Opening_Time_Graphs (Abnormal)]
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-
-
-# Delete all .png file in a folder [Top_Ten_Opening_Time_Graphs (Zero)]
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-
-
-# Delete all .png file in a folder [Top_Ten_Closing_Time_Graphs (Normal)]
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-
-
-# Delete all .png file in a folder [Top_Ten_Closing_Time_Graphs (Potentially_Problematic)]
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
-'''
-# Delete all .png file in a folder [Top_Ten_Closing_Time_Graphs (Abnormal)]
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
-
-'''
-# Delete all .png file in a folder [Top_Ten_Closing_Time_Graphs (Zero)]
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Believed to be Normal Cases (Opening Time)  --> df139
 df139 = df56.copy()
@@ -1297,14 +937,6 @@ except:
     print('No Top Ten Opening Time Result (Normal)')
     plt.close()
 
-'''
-# Delete all .png file in a folder (Top Ten Opening Time Trend DCU) (Normal)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Believed_To_Be_Normal\Trends')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Top 1 No. of Opening Time Trend (Normal) --> df118
 try:
@@ -1602,14 +1234,6 @@ except:
     print('No Top Ten Opening Time Result (Potentially Problematic)')
     plt.close()
 
-'''
-# Delete all .png file in a folder (Top Ten Opening Time Trend DCU) (Potentially Problematic)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Potentially_Problematic\Trends')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Top 1 No. of Opening Time Trend (Potentially Problematic) --> df219
 try:
@@ -2200,14 +1824,6 @@ except:
     print('No Top Ten Opening Time Result (Zero)')
     plt.close()
 
-'''
-# Delete all .png file in a folder (Top Ten Opening Time Trend DCU) (Zero)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Zero\Trends')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Top 1 No. of Opening Time Trend (Zero) --> df143
 try:
@@ -2448,15 +2064,6 @@ except:
     print('No Top10 Opening Time Trend (Zero)')
     plt.close()
 
-'''
-# Delete all .png file in a folder (Opening Time Range Count)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Opening_Time\Range_Count')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-
-'''
 
 # Opening Time Group Count with a particular range (3.8-3.9) -->  df270
 try:
@@ -2599,15 +2206,6 @@ except:
     print('No Top Ten Closing Time Result (Normal)')
     plt.close()
 
-'''
-# Delete all .png file in a folder (Top Ten Closing Time Trend DCU) (Normal)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Believed_To_Be_Normal\Trends')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-
-'''
 
 #Top 1 No. of Closing Time Trend (Normal) --> df128
 
@@ -2908,14 +2506,6 @@ except:
     print('No Top Ten Closing Time Result (Potentially_Problematic)')
     plt.close()
 
-'''
-#Delete all .png file in a folder (Top Ten Closing Time Trend DCU) (Potentially_Problematic)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Potentially_Problematic\Trends')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Top 1 No. of Closing Time Trend (Potentially_Problematic) --> df247
 try:
@@ -3186,14 +2776,6 @@ except:
     print('No Top Ten Closing Time Result (Abnormal)')
     plt.close()
 
-'''
-#Delete all .png file in a folder (Top Ten Closing Time Trend DCU) (Zero)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Abnormal\Trends')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Top 1 No. of Closing Time Trend (Abnormal) --> df260
 try:
@@ -3464,14 +3046,6 @@ except:
     print('No Top Ten Closing Time Result (Zero)')
     plt.close()
 
-'''
-#Delete all .png file in a folder (Top Ten Closing Time Trend DCU) (Zero)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Closing_Time\Zero\Trends')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 #Top 1 No. of Closing Time Trend (Zero) --> df157
 try:
@@ -3712,14 +3286,6 @@ except:
     print('No Top10 Closing Time Trend (Zero)')
     plt.close()
 
-'''
-# Delete all .png file in a folder (Closing Time Range Count)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Range_Count')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Closing Time Group Count with a particular range (3.6-3.9) -->  df274
 try:
@@ -3859,14 +3425,6 @@ df179 = pd.DataFrame(df179.groupby(['Pressure Rise']).size(),columns=['Pressure 
 df179 = df179.sort_values(by='Pressure Rise Count',ascending = False)
 df179 = df179.reset_index(drop = True)
 
-'''
-# Delete all .png file in a folder (Main_Pressure_Rise_Distribution)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Distributions\Pressure Rise')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Generate Graph for analyzing Pressure Rise -->  df180
 try:
@@ -3896,14 +3454,6 @@ df187 = pd.DataFrame(df187.groupby(['Source','Pressure Rise']).size(),columns=['
 df187 = df187.reindex(columns=['Source','Pressure Rise','Pressure Rise Count'])
 df187 = df187.sort_values(by='Pressure Rise Count',ascending = False)
 
-'''
-# Delete all .png file in a folder (Main_Pressure_Rise_Top_Ten)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Top Ten Main Pressure Rise Graph  -->  df188 (For Top_Ten_Graph, Sorted) || df203 (For Top_Ten_Trend, unsorted)
 
@@ -3930,14 +3480,6 @@ except:
     print('No Top Ten Pressure Rise Result')
     plt.close()
 
-'''
-# Delete all .png file in a folder (Main_Pressure_Rise_Trend)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Main Pressure Fall Alarm Excel Files  -->  df181
 df181 = pd.DataFrame(df6[['预警描述','车组','车厢','预警时间']]).copy()
@@ -3971,14 +3513,6 @@ df184 = pd.DataFrame(df184.groupby(['Pressure Fall']).size(),columns=['Pressure 
 df184 = df184.sort_values(by='Pressure Fall Count',ascending = False)
 df184 = df184.reset_index(drop = True)
 
-'''
-# Delete all .png file in a folder (Main_Pressure_Fall_Distribution)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Distributions\Pressure Fall')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Generate Graph for analyzing Pressure Fall -->  df185
 try:
@@ -4008,15 +3542,6 @@ df199 = df199.reindex(columns=['Source','Pressure Fall','Pressure Fall Count'])
 df199 = df199.sort_values(by='Pressure Fall Count',ascending = False)
 
 
-'''
-# Delete all .png file in a folder (Main_Pressure_Fall_Top_Ten)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Fall')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
-
 # Top Ten Main Pressure Fall Graph  -->  df200 (For Top_Ten_Graph, Sorted) || df201 (For Top_Ten_Trend, unsorted)
 
 try:   
@@ -4042,140 +3567,12 @@ except:
     print('No Top Ten Pressure Fall Result')
     plt.close()
 
-'''
-# Delete all .png file in a folder (Main_Pressure_Fall_Trend)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Main_Pressure\Top_Ten\Pressure Fall\Pressure_Fall_Trend')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Merge Main Pressure Rise and Fall (Group Count) into a single dataframe  -->  df186
 df186 = pd.DataFrame(pd.concat([df179,df184],axis=1))
 df186 = df186.fillna('               // ')
 
-'''
-# Final Main Pressure Rise and Fall Combined File
 
-df178 = df178.reindex(columns = ['车组','车厢','预警时间','Pressure Rise','Main Pressure Rise Standard'])
-df183 = df183.reindex(columns = ['车组','车厢','预警时间','Pressure Fall','Main Pressure Fall Standard'])
-
-df178 = df178.fillna('               // ')
-df183 = df183.fillna('               // ')
-df186 = df186.fillna('               // ')
-
-writer = pd.ExcelWriter(fr'C:\Users\{user}\Downloads\location\Main_Pressure\Main_Pressure_Count.xlsx') 
-df178.to_excel(writer, sheet_name='Pressure_Rise_Count',index = True, startrow = 1, na_rep='NaN', header=False)
-df183.to_excel(writer, sheet_name='Pressure_Fall_Count',index = True, startrow = 1, na_rep='NaN', header=False)
-df186.to_excel(writer, sheet_name='Pressure_Group_Count',index = True, startrow = 1, na_rep='NaN', header=False)
-
-
-workbook = writer.book
-worksheet = writer.sheets['Pressure_Rise_Count']
-worksheet1 = writer.sheets['Pressure_Fall_Count']
-worksheet2 = writer.sheets['Pressure_Group_Count']
-
-cols = ['车组','车厢','预警时间','Pressure Rise','Main Pressure Rise Standard'] 
-cols1 = ['车组','车厢','预警时间','Pressure Fall','Main Pressure Fall Standard'] 
-cols2 = ['Pressure Rise','Pressure Rise Count','Pressure Fall','Pressure Fall Count']
-colors = ['#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD','#A5D8DD']
-colors1 = ['#9BEE95','#9BEE95','#9BEE95','#9BEE95','#9BEE95']
-colors2 = ['#FFC425','#FFC425','#F37735','#F37735']
-
-
-
-(max_row, max_col) = df178.shape
-(max_row1, max_col1) = df183.shape
-(max_row2, max_col2) = df186.shape
-
-
-
-# Make the columns wider for clarity.
-worksheet.set_column(0,  max_col - 1, 12)
-worksheet1.set_column(0,  max_col1 - 1, 12)
-worksheet2.set_column(0,  max_col2 - 1, 12)
-
-
-
-# Set the autofilter.
-worksheet.autofilter(0, 0, max_row, max_col )
-worksheet1.autofilter(0, 0, max_row1, max_col1 )
-worksheet2.autofilter(0, 0, max_row2, max_col2 )
-
-
-# Add a header format.
-header_format = workbook.add_format({
-    'bold': True,
-    'text_wrap': True,
-    'fg_color': '#D7E4BC',
-    'align' : 'center',
-    'border': 1})
-
-
-# Write the column headers with the defined format.
-for col_num, value in enumerate(df178.columns.values):
-    worksheet.write(0, col_num + 1, value, header_format)
-    
-for col_num, value in enumerate(df183.columns.values):
-    worksheet1.write(0, col_num + 1, value, header_format)
-
-for col_num, value in enumerate(df186.columns.values):
-    worksheet2.write(0, col_num + 1, value, header_format)
-
-
-# Fill in Pressure Rise Count Color
-d = dict(zip(range(25), list(string.ascii_uppercase)[1:]))
-
-for i, col in enumerate(cols):
-    f1 = workbook.add_format({'bg_color': colors[i],'border': 1})
-    excel_header = str(d[df178.columns.get_loc(col)])
-    len_df178 = str(len(df178.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df178
-    worksheet.conditional_format(rng, {'type': 'no_blanks',
-                                     'format': f1})
-
-# Fill in Pressure Fall Count Color
-for i, col in enumerate(cols1):
-    f1 = workbook.add_format({'bg_color': colors1[i],'border': 1})
-    excel_header = str(d[df183.columns.get_loc(col)])
-    len_df183 = str(len(df183.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df183
-    worksheet1.conditional_format(rng, {'type': 'no_blanks',
-                                       'format': f1})
-    
-# Fill in Main Pressure Color (Group Count) 
-for i, col in enumerate(cols2):
-    f1 = workbook.add_format({'bg_color': colors2[i],'border': 1})
-    excel_header = str(d[df186.columns.get_loc(col)])
-    len_df186 = str(len(df186.index) + 1)
-
-    rng = excel_header + '2:' + excel_header + len_df186
-    worksheet2.conditional_format(rng, {'type': 'no_blanks',
-                                       'format': f1})
-
-
-    
-#Set the row height
-worksheet.set_default_row(27)
-worksheet1.set_default_row(27)
-worksheet2.set_default_row(27)
-
-#Set the column width ( <!-- Cutomize -- > ) 
-worksheet.set_column(1,30,20)
-worksheet1.set_column(1,30,20)
-worksheet2.set_column(1,30,20)
-
-
-# hide index using xlsxwriter
-worksheet.set_column(0,0, None, None, {'hidden': True})
-worksheet1.set_column(0,0, None, None, {'hidden': True})
-worksheet2.set_column(0,0, None, None, {'hidden': True})
-
-writer.close()
-'''
 #######################################################################################################################################################################################
 
 
