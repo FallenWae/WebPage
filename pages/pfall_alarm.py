@@ -9,7 +9,7 @@ from time import sleep
 import string
 from matplotlib.ticker import MaxNLocator
 import plotly.express as px
-from load_data import get_dataframe , map_id, map_stname, user
+from load_data import get_dataframe , map_id, map_stname, user, StartDate, EndDate
 from dash import Dash, dcc, html, Input, Output, dash_table
 
 df6 = get_dataframe()
@@ -309,6 +309,10 @@ try:
 except:
     pass
 
+# Change datetime to date (Formatting)
+StartDate = StartDate.date()
+EndDate = EndDate.date()
+
 # Create a a dashboard for Pressure Fall Alarm
 
 # fig --> Top Ten Pressure Fall Distribution Graph
@@ -330,7 +334,7 @@ try:
 
 
     layout = html.Div([
-        html.Div([html.Header("Pressure Fall"),
+        html.Div([html.Header(f"Pressure Fall ({StartDate} to {EndDate})"),
         html.Div([
              dcc.Dropdown(id="mydropdown",
                          options = sorted(df410['Pressure Fall'].unique(),reverse = True),
