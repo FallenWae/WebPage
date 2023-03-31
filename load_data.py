@@ -227,7 +227,7 @@ def opening_range(op_range):
 
 # Get the current computer user's name
 user = getpass.getuser()
-
+'''
 # Generate Destination Folders and Sub-Folders
 try:
     test_path = fr'C:\Users\{user}\Downloads'
@@ -269,7 +269,7 @@ try:
     
 except:
     print('Destination Folder Already Generated!')
-
+'''
 # In[4]:
 
 
