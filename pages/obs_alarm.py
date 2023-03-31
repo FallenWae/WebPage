@@ -15,7 +15,7 @@ import string
 from matplotlib.ticker import MaxNLocator
 import plotly.express as px
 #sys.path.insert(0, 'C:\\Users\\SORickCH\\Desktop\\web')
-from load_data import get_dataframe , map_id, map_stname, user
+from load_data import get_dataframe , map_id, map_stname, user, StartDate, EndDate
 from dash import Dash, dcc, html, Input, Output, dash_table
 
 
@@ -1276,6 +1276,10 @@ df402 = pd.concat([df104,df105,df106,df107,df108,df109,df110,df111,df112,df113],
 # In[5]:
 
 
+# Change datetime to date (Formatting)
+StartDate = StartDate.date()
+EndDate = EndDate.date()
+
 # Create a dashborad for Obstacle Detected Alarm 
 
 
@@ -1295,7 +1299,7 @@ fig1 = px.bar(df101,x='Source',
 
 
 layout = html.Div([
-    html.Div([html.Header("Obstacle Detected"),
+    html.Div([html.Header(f"Obstacle Detected ({StartDate} to {EndDate})"),
     html.Div([dcc.Dropdown(id="mydropdown",
                  options = df102['Type'].unique(),
                  value = df102.iloc[0]['Type']),
