@@ -49,7 +49,7 @@ df168.plot.barh(x='Speed_Range',y = 'Opening_Range_Count', rot=0, width = 0.7,fi
 plt.title('Opening_Time_Distribution (Range)')
 plt.ylabel('Opening Speed Range')
 plt.xlabel('Count')
-plt.savefig(fr'C:/Users/{user}/Downloads/location/Opening_Closing_Time/Distributions/Opening_Time/Opening_Time_Distribution (Range).png')
+#plt.savefig(fr'C:/Users/{user}/Downloads/location/Opening_Closing_Time/Distributions/Opening_Time/Opening_Time_Distribution (Range).png')
 plt.close()
 
 
