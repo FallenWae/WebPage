@@ -85,7 +85,7 @@ try:
     plt.title(top1 +' '+ 'Main Pressure Rise Trend ({})'.format(t1_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top1.png'.format(user,top1))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top1.png'.format(user,top1))
     plt.close()
     
 except:
@@ -108,7 +108,7 @@ try:
     plt.title(top2 +' '+ 'Main Pressure Rise Trend ({})'.format(t2_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top2.png'.format(user,top2))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top2.png'.format(user,top2))
     plt.close()
     
 except:
@@ -131,7 +131,7 @@ try:
     plt.title(top3 +' '+ 'Main Pressure Rise Trend ({})'.format(t3_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top3.png'.format(user,top3))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top3.png'.format(user,top3))
     plt.close()
     
 except:
@@ -154,7 +154,7 @@ try:
     plt.title(top4 +' '+ 'Main Pressure Rise Trend ({})'.format(t4_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top4.png'.format(user,top4))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top4.png'.format(user,top4))
     plt.close()
     
 except:
@@ -177,7 +177,7 @@ try:
     plt.title(top5 +' '+ 'Main Pressure Rise Trend ({})'.format(t5_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top5.png'.format(user,top5))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top5.png'.format(user,top5))
     plt.close()
     
 except:
@@ -200,7 +200,7 @@ try:
     plt.title(top6 +' '+ 'Main Pressure Rise Trend ({})'.format(t6_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top6.png'.format(user,top6))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top6.png'.format(user,top6))
     plt.close()
     
 except:
@@ -223,7 +223,7 @@ try:
     plt.title(top7 +' '+ 'Main Pressure Rise Trend ({})'.format(t7_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top7.png'.format(user,top7))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top7.png'.format(user,top7))
     plt.close()
     
 except:
@@ -246,7 +246,7 @@ try:
     plt.title(top8 +' '+ 'Main Pressure Rise Trend ({})'.format(t8_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top8.png'.format(user,top8))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top8.png'.format(user,top8))
     plt.close()
     
 except:
@@ -269,7 +269,7 @@ try:
     plt.title(top9 +' '+ 'Main Pressure Rise Trend ({})'.format(t9_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top9.png'.format(user,top9))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top9.png'.format(user,top9))
     plt.close()
     
 except:
@@ -292,7 +292,7 @@ try:
     plt.title(top10 +' '+ 'Main Pressure Rise Trend ({})'.format(t10_speed))
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top10.png'.format(user,top10))
+    #plt.savefig(r'C:\Users\{0}\Downloads\location\Main_Pressure\Top_Ten\Pressure Rise\Pressure_Rise_Trend\{1}_Top10.png'.format(user,top10))
     plt.close()
     
 except:
