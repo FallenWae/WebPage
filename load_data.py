@@ -1527,14 +1527,6 @@ except:
     print('No Top Ten Opening Time Result (Abnormal)')
     plt.close()
 
-'''
-# Delete all .png file in a folder (Top Ten Opening Time Trend DCU) (Abnormal)
-folder_path = (fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Top_ten\Opening_Time\Abnormal\Trends')
-target = os.listdir(folder_path)
-for images in target:
-    if images.endswith(".png"):
-        os.remove(os.path.join(folder_path, images))
-'''
 
 # Top 1 No. of Opening Time Trend (Abnormal) --> df232
 try:
