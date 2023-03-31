@@ -9,7 +9,7 @@ from time import sleep
 import string
 from matplotlib.ticker import MaxNLocator
 import plotly.express as px
-from load_data import get_dataframe , map_id, map_stname, user, opening_range
+from load_data import get_dataframe , map_id, map_stname, user, opening_range, StartDate, EndDate
 from dash import Dash, dcc, html, Input, Output, dash_table
 from dash.exceptions import PreventUpdate
 
@@ -378,6 +378,11 @@ try:
 except:
     print('No Top Ten Closing Time Trend')
 
+
+# Change datetime to date (Formatting)
+StartDate = StartDate.date()
+EndDate = EndDate.date()    
+    
 # Create a a dashboard for Closing Time Alarm
 
 # fig --> Top Ten Closing Speed Distribution Graph
@@ -422,7 +427,7 @@ try:
 
 
     layout = html.Div([
-        html.Div([html.Header("Closing Time"),
+        html.Div([html.Header(f"Closing Time ({StartDate} to {EndDate})"),
         html.Label(['Choose a graph:'],style={'font-weight': 'bold'}),
         dcc.RadioItems(
                     id='radio_new_cl',
