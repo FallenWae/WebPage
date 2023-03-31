@@ -1,4 +1,4 @@
-# WebPage
+<!DOCTYPE html>
 <html>
   <head>
     <title><h2>Dashboard</h2></title>
