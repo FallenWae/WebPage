@@ -41,7 +41,7 @@ try:
     plt.title('Closing_Time_Distribution (Range)')
     plt.ylabel('Closing Speed Range')
     plt.xlabel('Count')
-    plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Range).png')
+    #plt.savefig(fr'C:\Users\{user}\Downloads\location\Opening_Closing_Time\Distributions\Closing_Time\Closing_Time_Distribution (Range).png')
     plt.close()
     
 except:
