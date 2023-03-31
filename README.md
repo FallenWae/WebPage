@@ -4,6 +4,7 @@
     <h2>Dashboard</h2>
   </head>
   <body>
+   <p> 
    <ol>
    <h3>  
      <li><I>Obstacle Detected</I></li>
