@@ -7,13 +7,13 @@
    <ol>
    <h3>  
      <li><I>Obstacle Detected</I></li>
-     <hr>
+     <p>
      <li><I>Opening Time</I></li>
-     <hr>
+     <p>
      <li><I>Closing Time</I></li>
-     <hr>
+     <p>
      <li><I>Pressure Rise</I></li>
-     <hr>
+     <p>
      <li><I>Pressure Fall</I></li>
    </h3>
    </ol>   
