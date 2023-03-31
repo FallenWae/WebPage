@@ -5,11 +5,11 @@
   </head>
   <body>
    <ol>
-     <li><I>Obstacle Detected</li>
-     <li>Opening Time</li>
-     <li>Closing Time</li>
-     <li>Pressure Rise</li>
-     <li>Pressure Fall</li></I>
+     <li><I>Obstacle Detected</I></li>
+     <li><I>Opening Time</I></li>
+     <li><I>Closing Time</I></li>
+     <li><I>Pressure Rise</I></li>
+     <li><I>Pressure Fall</I></li>
    </ol>   
   </body>
 </html>
