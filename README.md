@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <h2>Dashboard</h2>
+    <h2>PHM Dashboard</h2>
   </head>
   <body>
    <p> 
