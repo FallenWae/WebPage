@@ -295,7 +295,7 @@ try:
 
 
  #List of your directories
- directories:List[str] = [r'Alarms/']
+ directories:List[str] = ['Alarms/']
 
  found_files:List[pathlib.Path] = list()
 
