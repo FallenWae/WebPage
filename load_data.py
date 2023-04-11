@@ -242,8 +242,8 @@ def daterange(date1, date2):
 
 # Taking the Date between StartDate and EndDate (Datetime Format Vaildation --> User Input )
 date_format = '%Y-%m-%d'
-StartDate = '2023-04-01'
-EndDate = '2023-04-10'
+StartDate = '2023-03-20'
+EndDate = '2023-03-22'
 #StartDate = str(input("Start From ? \n"))
 #EndDate = str(input('End In ? \n'))
 dt_list = []
