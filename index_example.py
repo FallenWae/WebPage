@@ -6,6 +6,7 @@
 from app import app
 from app import server
 from dash import Dash, html, dcc, Input, Output, dash_table, State
+from load_data import  StartDate, EndDate
 import pandas as pd
 import dash_bootstrap_components as dbc 
 
@@ -60,6 +61,11 @@ CONTENT_STYLE1 = {
     "padding": "2rem 1rem",
     "background-color": "#f8f9fa",
 }
+
+
+# Change datetime to date (Formatting)
+StartDate = StartDate.date()
+EndDate = EndDate.date()
 
 
 navbar = dbc.NavbarSimple(
@@ -169,15 +175,60 @@ def toggle_active_links(pathname):
 
 def display_page(pathname):
     if pathname == '/pages/obs_alarm':
-        return obs_alarm.layout
+        try:
+            return obs_alarm.layout
+        except:
+            return html.Div([
+            html.H1('404 Not Found', className = 'text-danger'),
+            html.Hr(),
+            html.P(f'No Obstacle Detected Alarms from {StartDate} to {EndDate}'),
+        
+         ],
+        )
     if pathname == '/pages/op_alarm':
-        return op_alarm.layout
+        try:
+            return op_alarm.layout
+        except:
+            return html.Div([
+            html.H1('404 Not Found', className = 'text-danger'),
+            html.Hr(),
+            html.P(f'No Opening Time Alarms from {StartDate} to {EndDate}'),
+        
+         ],
+        )
     if pathname == '/pages/cl_alarm':
-        return cl_alarm.layout
+        try:
+            return cl_alarm.layout
+        except:
+            return html.Div([
+            html.H1('404 Not Found', className = 'text-danger'),
+            html.Hr(),
+            html.P(f'No Closing Time Alarms from {StartDate} to {EndDate}'),
+        
+         ],
+        )
     if pathname == '/pages/prise_alarm':
-        return prise_alarm.layout
+        try:
+            return prise_alarm.layout
+        except:
+            return html.Div([
+            html.H1('404 Not Found', className = 'text-danger'),
+            html.Hr(),
+            html.P(f'No Pressure Rise Alarms from {StartDate} to {EndDate}'),
+        
+         ],
+        )
     if pathname == '/pages/pfall_alarm':
-        return pfall_alarm.layout
+        try:
+            return pfall_alarm.layout
+        except:
+            return html.Div([
+            html.H1('404 Not Found', className = 'text-danger'),
+            html.Hr(),
+            html.P(f'No Pressure Fall Alarms from {StartDate} to {EndDate}'),
+        
+         ],
+        )
     else:
         return html.Div([
             html.H1('404 Not Found', className = 'text-danger'),
