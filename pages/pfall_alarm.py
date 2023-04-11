@@ -59,6 +59,11 @@ try:
     df199 = df199.reindex(columns=['Source','Pressure Fall','Pressure Fall Count'])
     df199 = df199.sort_values(by='Pressure Fall Count',ascending = False)
     df200 = df199.nlargest(n = 10 , columns =['Pressure Fall Count'])
+    df199['sort1']= df199['Source'].str.extract('(?:.*T)([0-9]+)(?:_)')
+    df199['sort2']= df199['Source'].str.extract('(?:.*_)([0-9]+)')
+    df199['sort1'] = df199['sort1'].astype("int")
+    df199['sort2'] = df199['sort2'].astype("int")
+    df199 = df199.sort_values(by=['sort1','sort2'],ignore_index = True, ascending = True)
 
 except:
 
@@ -370,11 +375,14 @@ try:
 
         filtered_data = df199.loc[df199['Pressure Fall']==changes]
         filtered_data2 = df183.loc[df183['Pressure Fall']==changes]
+        
+        a = filtered_data.nlargest(n=1,columns=['Pressure Fall Count'])
+        a = a.iloc[0]['Source']
     
         fig_fall_dis = px.bar(filtered_data,
                     x='Source',
                     y='Pressure Fall Count',
-                    title =f'Pressure Fall Distribution (Filter)',
+                    title =f'Pressure Fall Distribution (Filter)\nThe Highest Pressure Fall Train : {a}',
                     hover_name = 'Source',
                     hover_data =['Pressure Fall Count'])
     
