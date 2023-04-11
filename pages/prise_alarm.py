@@ -59,6 +59,11 @@ try:
     df187 = df187.reindex(columns=['Source','Pressure Rise','Pressure Rise Count'])
     df187 = df187.sort_values(by='Pressure Rise Count',ascending = False)
     df188 = df187.nlargest(n = 10 , columns =['Pressure Rise Count'])
+    df187['sort1']= df187['Source'].str.extract('(?:.*T)([0-9]+)(?:_)')
+    df187['sort2']= df187['Source'].str.extract('(?:.*_)([0-9]+)')
+    df187['sort1'] = df187['sort1'].astype("int")
+    df187['sort2'] = df187['sort2'].astype("int")
+    df187 = df187.sort_values(by=['sort1','sort2'],ignore_index = True, ascending = True)
 
 except:
 
@@ -371,11 +376,14 @@ try:
 
         filtered_data = df187.loc[df187['Pressure Rise']==changes]
         filtered_data2 = df178.loc[df178['Pressure Rise']==changes]
+        
+        a = filtered_data.nlargest(n=1,columns=['Pressure Rise Count'])
+        a = a.iloc[0]['Source']
     
         fig_rise_dis = px.bar(filtered_data,
                   x='Source',
                   y='Pressure Rise Count',
-                  title =f'Pressure Rise Distribution (Filter)',
+                  title =f'Pressure Rise Distribution (Filter)\nThe Highest Pressure Rise Train : {a}',
                   hover_name = 'Source',
                   hover_data =['Pressure Rise Count'])
     
