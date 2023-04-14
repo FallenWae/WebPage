@@ -82,7 +82,7 @@ df63 = df63.reindex(columns=['Source','预警时间 (Closing)','Current_Station_
     
 
 # Drop Closing Speed if less than 3.6 
-df405 = df59.drop(df59[df59['Closing Speed'] < 3.6].index, axis = 'rows')
+df405 = df59.drop(df59[df59['Closing Speed'] < 3.5].index, axis = 'rows')
 df405['Closing Speed'] = df405['Closing Speed'].astype('str')
 
 # Selector of Closing Time (For DropDownList [Trainset])  -->  df116
