@@ -94,7 +94,6 @@ try:
     plt.title(top1 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top1.png'.format(user,top1))
     plt.close()
     
 except:
@@ -117,7 +116,6 @@ try:
     plt.title(top2 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top2.png'.format(user,top2))
     plt.close()
     
 except:
@@ -141,7 +139,6 @@ try:
     plt.title(top3 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top3.png'.format(user,top3))
     plt.close()
     
 except:
@@ -164,7 +161,6 @@ try:
     plt.title(top4 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top4.png'.format(user,top4))
     plt.close()
     
 except:
@@ -187,7 +183,6 @@ try:
     plt.title(top5 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top5.png'.format(user,top5))
     plt.close()
     
 except:
@@ -210,7 +205,6 @@ try:
     plt.title(top6 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top6.png'.format(user,top6))
     plt.close()
     
 except:
@@ -232,7 +226,6 @@ try:
     plt.title(top7 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top7.png'.format(user,top7))
     plt.close()
     
 except:
@@ -255,7 +248,6 @@ try:
     plt.title(top8 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top8.png'.format(user,top8))
     plt.close()
     
 except:
@@ -278,7 +270,6 @@ try:
     plt.title(top9 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top9.png'.format(user,top9))
     plt.close()
     
 except:
@@ -301,7 +292,6 @@ try:
     plt.title(top10 +' '+ 'Emergency Brake Trend')
     plt.ylabel('Count')
     plt.xlabel('Date')
-    plt.savefig(r'C:\Users\{0}\Downloads\location\Emergency_Brake\Top_Ten\Top_Ten_Trend\{1}_Top10.png'.format(user,top10))
     plt.close()
     
 except:
