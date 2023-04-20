@@ -1,5 +1,5 @@
-#import sys
-#sys.path.insert(0, 'C:\\Users\\SORickCH\\Desktop\\web\\pages')
+StartDate = '2023-4-1'
+EndDate = '2023-4-19'
 
 #Import Librays from External Modules
 import pandas as pd
@@ -242,8 +242,6 @@ def daterange(date1, date2):
 
 # Taking the Date between StartDate and EndDate (Datetime Format Vaildation --> User Input )
 date_format = '%Y-%m-%d'
-StartDate = '2023-4-1'
-EndDate = '2023-4-13'
 #StartDate = str(input("Start From ? \n"))
 #EndDate = str(input('End In ? \n'))
 dt_list = []
