@@ -286,7 +286,7 @@ def display_page(pathname):
 
 if __name__ == '__main__':
     print ('Run Run Run')
-    app.run_server(host='0.0.0.0',port=8050,debug=True,use_reloader = False)
+    app.run_server(host='0.0.0.0',port=8050,debug=False,use_reloader = False)
     
 
 # In[ ]:
