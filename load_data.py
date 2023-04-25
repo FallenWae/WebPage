@@ -116,7 +116,82 @@ def map_id(idxx):
         return 'PL 7'
     elif idxx == 376:
         return 'PL 8'
-
+    elif idxx == 19233:
+       return 'G1 (EA)'
+    elif idxx == 19234:
+       return 'G2 (virtual track behind 5219)'
+    elif idxx == 19217:
+       return  'DJ'
+    elif idxx == 24033:
+       return 'G1 (JK)'
+    elif idxx == 24034:
+       return 'G2 (JJ)'
+    elif idxx == 24017:
+        return 'virtual track behind point 5511'
+    elif idxx == 25617:
+       return 'virtual track behind point 5613'
+    elif idxx == 11233:
+       return 'virtual track on left side of point 5714'
+    elif idxx == 1937:
+        return 'PL 1'
+    elif idxx == 2417:
+       return 'G3N (YW2,YX1,YX2)'
+    elif idxx == 2577:
+        return 'G1N (L015)'
+    elif idxx == 2578:
+        return 'G2N (L013)'
+    elif idxx == 2593:
+       return 'L002'
+    elif idxx == 2594:
+        return 'L026'
+    elif idxx == 11217:
+       return 'NM'
+    elif idxx == 11218:
+       return 'NC'
+    elif idxx == 11219:
+       return 'H166'
+    elif idxx == 11221:
+       return 'H171'
+    elif idxx == 11222:
+        return 'PH'
+    elif idxx == 1457:
+       return '1'
+    elif idxx == 1473:
+       return '1'
+    elif idxx == 14417:
+       return '1'
+    elif idxx == 3857:
+       return 'AAA'
+    elif idxx == 273:
+       return 'Line B'
+    elif idxx == 274:
+       return 'Line A'
+    elif idxx == 385:
+       return 'AAC'
+    elif idxx == 241:
+       return 'G2S (YY1,YY2)'
+    elif idxx == 242:
+       return 'G3S (YV)'
+    elif idxx == 257:
+       return 'G1S (L014)'
+    elif idxx == 258 :
+       return 'G2S (L012)'
+    elif idxx == 17:
+       return 'PL1'
+    elif idxx == 18:
+       return 'PL2'
+    elif idxx == 19:
+       return 'PL3'
+    elif idxx == 20:
+       return 'PL4'
+    elif idxx == 21:
+       return 'PL5'
+    elif idxx == 22:
+       return 'PL6'
+    elif idxx == 1617:
+       return 'R7'
+    elif idxx == 17617:
+       return 'virtual track behind point 5135'
 
 # In[3]:
 
@@ -197,6 +272,82 @@ def map_stname(name):
         return 'Admiralty'
     elif name == 376:
         return 'Admiralty'
+    elif name == 19233:
+       return 'MKK Freight Yard'
+    elif name == 19234:
+       return 'MKK Freight Yard'
+    elif name == 19217:
+       return  'MKK Freight Yard'
+    elif name == 24033:
+       return 'Sha Tin Freight Terminal'
+    elif name == 24034:
+       return 'Sha Tin Freight Terminal'
+    elif name == 24017:
+        return 'Sha Tin Freight Terminal (Neck)'
+    elif name == 25617:
+       return 'Fo Tan Freight Terminal'
+    elif name == 11233:
+       return 'Fo Tan Pway Subdepot'
+    elif name == 1937:
+        return 'SSG_Driver Platform'
+    elif name == 2417:
+       return 'Abattoir Siding (North)'
+    elif name == 2577:
+        return 'Lo Wu Marshalling Yard (North)'
+    elif name == 2578:
+        return 'Lo Wu Marshalling Yard (North)'
+    elif name == 2593:
+       return 'Lo Wu Marshalling Yard'
+    elif name == 2594:
+        return 'Lo Wu Marshalling Yard'
+    elif name == 11217:
+       return 'Dep_E1 (Slot 1)'
+    elif name == 11218:
+       return 'Dep_E2 (Slot 2)'
+    elif name == 11219:
+       return 'Dep_E3 (Slot 3)'
+    elif name == 11221:
+       return 'Dep_E5 (Slot 5)'
+    elif name == 11222:
+        return 'Dep_E6 (Slot 6)'
+    elif name == 1457:
+       return 'HTD Test Track 1'
+    elif name == 1473:
+       return 'HTD Test Track 2'
+    elif name == 14417:
+       return 'HTD Test Track'
+    elif name == 3857:
+       return 'ADM turnback siding (stabling location)'
+    elif name == 273:
+       return 'Mainland China (Tokenless Block)'
+    elif name == 274:
+       return 'Mainland China (Tokenless Block)'
+    elif name == 385:
+       return 'ADM turnback siding (turnback location)'
+    elif name == 241:
+       return 'Abattoir Siding (South)'
+    elif name == 242:
+       return 'Abattoir Siding (South)'
+    elif name == 257:
+       return 'Lo Wu Marshalling Yard (South)'
+    elif name == 258 :
+       return 'Lo Wu Marshalling Yard (South)'
+    elif name == 17:
+       return 'Old Hung Hom'
+    elif name == 18:
+       return 'Old Hung Hom'
+    elif name == 19:
+       return 'Old Hung Hom'
+    elif name == 20:
+       return 'Old Hung Hom'
+    elif name == 21:
+       return 'Old Hung Hom'
+    elif name == 22:
+       return 'Old Hung Hom'
+    elif name == 1617:
+       return 'Old Hung Hom'
+    elif name == 17617:
+       return 'Ho Man Tin Siding'
 
 
 # Define function for extracting Opening_Closing_Time Data in a designated range
