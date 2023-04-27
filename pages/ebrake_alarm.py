@@ -334,7 +334,7 @@ try:
 
 
     layout = html.Div([
-        html.Div([html.Header("Emergency Brake Alarm"),
+        html.Div([html.Header(f"Emergency Brake ({StartDate} to {EndDate})"),
         html.Div([dcc.Dropdown(id="mydropdown",
                  options = df816['Type'].unique(),
                  value = df816.iloc[0]['Type']),
