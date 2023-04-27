@@ -324,7 +324,7 @@ try:
 
 
     layout = html.Div([
-        html.Div([html.Header("VCB Alarm"),
+        html.Div([html.Header(f"VCB A ({StartDate} to {EndDate})"),
         html.Div([dcc.Dropdown(id="mydropdown",
                  options = df804['Type'].unique(),
                  value = df804.iloc[0]['Type']),
