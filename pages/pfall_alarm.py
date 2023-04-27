@@ -55,6 +55,7 @@ df183 = df183.reindex(columns=['Source','预警时间','Pressure Fall','Main Pre
 # Main Pressure Fall Excel File (Group Count)   -->  df199
 try:
     df199 = df183.copy()
+    df199 = df199[(df199['Pressure Fall'] < -0.015)]
     df199 = pd.DataFrame(df199.groupby(['Source','Pressure Fall']).size(),columns=['Pressure Fall Count']).reset_index()
     df199 = df199.reindex(columns=['Source','Pressure Fall','Pressure Fall Count'])
     df199 = df199.sort_values(by='Pressure Fall Count',ascending = False)
