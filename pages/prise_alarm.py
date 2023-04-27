@@ -55,6 +55,7 @@ df178 = df178.reindex(columns=['Source','预警时间','Pressure Rise','Main Pre
 # Main Pressure Rise Excel File (Group Count)   -->  df187
 try:
     df187 = df178.copy()
+    df187 = df187[(df187['Pressure Rise'] < 0.007)]
     df187 = pd.DataFrame(df187.groupby(['Source','Pressure Rise']).size(),columns=['Pressure Rise Count']).reset_index()
     df187 = df187.reindex(columns=['Source','Pressure Rise','Pressure Rise Count'])
     df187 = df187.sort_values(by='Pressure Rise Count',ascending = False)
